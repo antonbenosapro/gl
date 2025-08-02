@@ -1,0 +1,17 @@
+streamlit
+psycopg2-binary
+pandas
+streamlit-aggrid
+sqlalchemy
+pytest
+pytest-mock
+python-dotenv
+pydantic[email]
+pydantic-settings
+loguru
+pyjwt[crypto]
+bcrypt
+passlib[bcrypt]
+python-multipart
+streamlit-authenticator
+cryptography
