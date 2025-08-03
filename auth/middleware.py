@@ -125,7 +125,7 @@ class StreamlitAuthenticator:
     
     def logout(self):
         """Logout current user"""
-        user = self.get_current_user()
+        user = st.session_state.get(self.session_key_user)
         if user:
             StreamlitLogHandler.log_user_action("logout", user.username)
         
