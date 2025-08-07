@@ -54,7 +54,7 @@ def get_gl_data(limit=None):
         jel.debitamount,
         jel.creditamount,
         jel.description AS memo,
-        jel.costcenterid,
+        jel.business_unit_id,
         jeh.reference,
         jeh.createdby,
         jeh.createdat
@@ -141,7 +141,7 @@ gb.configure_column(
 )
 
 gb.configure_column('memo', header_name='Memo', width=200)
-gb.configure_column('costcenterid', header_name='Cost Center', width=100)
+gb.configure_column('business_unit_id', header_name='Business Unit', width=100)
 gb.configure_column('reference', header_name='Reference', width=120)
 gb.configure_column('createdby', header_name='Created By', width=100)
 gb.configure_column('createdat', header_name='Created At', width=120, type=["dateColumnFilter"])

@@ -16,7 +16,7 @@ st.title("GLAccount Data Entry")
 # Load existing records function
 def load_glaccounts():
     return pd.read_sql(
-        "SELECT glaccountid AS \"GLAccountID\", companycodeid AS \"CompanyCodeID\", accountname AS \"AccountName\", accounttype AS \"AccountType\", isreconaccount AS \"IsReconAccount\", isopenitemmanaged AS \"IsOpenItemManaged\" FROM glaccount",
+        "SELECT glaccountid AS \"GLAccountID\", accountname AS \"AccountName\", accounttype AS \"AccountType\", account_class AS \"AccountClass\", account_group_code AS \"AccountGroup\" FROM glaccount WHERE (marked_for_deletion = FALSE OR marked_for_deletion IS NULL)",
         conn
     )
 

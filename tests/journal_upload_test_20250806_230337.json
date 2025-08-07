@@ -1,0 +1,84 @@
+{
+  "test_run_id": "UPLOAD_TEST_20250806_230337",
+  "start_time": "2025-08-06 23:03:37.814802",
+  "test_cases": [
+    {
+      "test_name": "Create Single File Sample",
+      "status": "PASSED",
+      "details": "Created sample file with 10 lines, 3 entries",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.824108"
+    },
+    {
+      "test_name": "Create Two-File Samples",
+      "status": "PASSED",
+      "details": "Created headers file (3 entries) and lines file (6 lines)",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.825285"
+    },
+    {
+      "test_name": "Balance Validation",
+      "status": "PASSED",
+      "details": "Correctly identified 1 balanced and 1 unbalanced entries",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.827047"
+    },
+    {
+      "test_name": "GL Account Validation",
+      "status": "PASSED",
+      "details": "Found 3 valid and 2 invalid accounts",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.839000"
+    },
+    {
+      "test_name": "Entry Creation",
+      "status": "PASSED",
+      "details": "Successfully created 2 entries, 1 failed",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.853777"
+    },
+    {
+      "test_name": "Submission Workflow",
+      "status": "PASSED",
+      "details": "Successfully submitted UPLOAD_TEST_001 for approval",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.876786"
+    },
+    {
+      "test_name": "Error Handling",
+      "status": "PASSED",
+      "details": "Correctly identified 3 error types: Invalid company codes, Duplicate line numbers, Non-numeric amounts",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.879174"
+    },
+    {
+      "test_name": "Multi-Currency Support",
+      "status": "PASSED",
+      "details": "Processed 2 currencies with exchange rates",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.879962"
+    },
+    {
+      "test_name": "Large Batch Processing",
+      "status": "PASSED",
+      "details": "Created large batch: 50 entries, 200 lines, all balanced",
+      "error_msg": "",
+      "timestamp": "2025-08-06T23:03:37.886968"
+    }
+  ],
+  "sample_files": {
+    "single_file": "tests/sample_journal_upload_single.csv",
+    "headers_file": "tests/sample_journal_headers.csv",
+    "lines_file": "tests/sample_journal_lines.csv"
+  },
+  "summary": {
+    "total_tests": 9,
+    "passed": 9,
+    "failed": 0,
+    "warnings": 0,
+    "skipped": 0,
+    "pass_rate": 100.0,
+    "end_time": "2025-08-06 23:03:37.900498",
+    "duration": "0:00:00.085701"
+  }
+}

@@ -1,0 +1,7 @@
+document_number,company_code,line_number,gl_account,debit_amount,credit_amount,posting_date,description,business_unit_id,tax_code,business_area,reference,assignment,text,document_type
+FSG-FAIL-001,1000,1,400001,1000.00,0.00,2025-08-07,Test Revenue Entry - Missing Required Fields,,,,,,,SA
+FSG-FAIL-001,1000,2,100010,0.00,1000.00,2025-08-07,Cash Entry - Providing Suppressed Fields,1,V1,US,REF001,ASSIGN001,TEXT001,SA
+FSG-FAIL-002,1000,1,110000,1500.00,0.00,2025-08-07,AR Entry - Missing Required Fields,,,,,,,DR
+FSG-FAIL-002,1000,2,400001,0.00,1500.00,2025-08-07,Revenue Entry - Wrong Document Type,,,,,,,DR
+FSG-FAIL-003,1000,1,100010,500.00,0.00,2025-08-07,Cash Receipt - Providing Suppressed Business Unit,2,,,,,CA
+FSG-FAIL-003,1000,2,550000,0.00,500.00,2025-08-07,Expense Entry - Missing Required Fields,,,NORTH,REF003,ASSIGN003,TEXT003,

@@ -1,0 +1,187 @@
+{
+  "test_run": "2025-08-07T16:12:36.414277",
+  "test_type": "FSG_VALIDATION_QAT",
+  "tests": [
+    {
+      "test_name": "FSG Hierarchy Resolution - Document Type Priority",
+      "status": "FAIL",
+      "details": "Expected VENDOR01, got None",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.427742"
+    },
+    {
+      "test_name": "FSG Hierarchy Resolution - GL Account Priority",
+      "status": "FAIL",
+      "details": "Expected RECV01, got ASSET01",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.437338"
+    },
+    {
+      "test_name": "FSG Hierarchy Resolution - Account Group Priority",
+      "status": "FAIL",
+      "details": "Expected EXP01, got ASSET01",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.438389"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 1",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: None",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.439201"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 2",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: ",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.440054"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 3",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: nan",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.440877"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 4",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: None",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.441799"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 5",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: none",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.442926"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 6",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: NaN",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.443784"
+    },
+    {
+      "test_name": "Null Value Handling",
+      "status": "ERROR",
+      "details": "",
+      "error": "boolean value of NA is ambiguous",
+      "timestamp": "2025-08-07T16:12:36.444576"
+    },
+    {
+      "test_name": "Business Unit Validation - Revenue BU Required",
+      "status": "FAIL",
+      "details": "Failed to enforce BU requirement. Errors: []",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.445281"
+    },
+    {
+      "test_name": "Business Unit Validation - Expense BU Required",
+      "status": "FAIL",
+      "details": "Failed to enforce BU requirement. Errors: []",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.446024"
+    },
+    {
+      "test_name": "Business Unit Validation - Cash BU Suppressed",
+      "status": "FAIL",
+      "details": "Failed to suppress BU. Errors: []",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.446817"
+    },
+    {
+      "test_name": "Field Suppression - Suppressed Fields",
+      "status": "PASS",
+      "details": "Detected 2 suppressed field violations",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.447794"
+    },
+    {
+      "test_name": "Required Fields - Missing Required",
+      "status": "PASS",
+      "details": "Detected 3 missing required fields",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.449771"
+    },
+    {
+      "test_name": "Required Fields - All Required Provided",
+      "status": "PASS",
+      "details": "Validation passed with all required fields",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.450639"
+    },
+    {
+      "test_name": "FSG Effective Determination - Vendor invoice AP",
+      "status": "FAIL",
+      "details": "Expected VENDOR01, got None",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.453096"
+    },
+    {
+      "test_name": "FSG Effective Determination - Customer invoice AR",
+      "status": "PASS",
+      "details": "Correctly resolved to RECV01",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.453946"
+    },
+    {
+      "test_name": "FSG Effective Determination - General journal revenue",
+      "status": "FAIL",
+      "details": "Expected REV01, got ASSET01",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.454687"
+    },
+    {
+      "test_name": "FSG Effective Determination - General journal expense",
+      "status": "FAIL",
+      "details": "Expected EXP01, got ASSET01",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.455422"
+    },
+    {
+      "test_name": "FSG Effective Determination - Cash journal",
+      "status": "PASS",
+      "details": "Correctly resolved to CASH01",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.456797"
+    },
+    {
+      "test_name": "FSG Effective Determination - General journal inventory",
+      "status": "PASS",
+      "details": "Correctly resolved to ASSET01",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.457606"
+    },
+    {
+      "test_name": "Pandas Integration - Row 1 Null Detection",
+      "status": "PASS",
+      "details": "Correctly detected null BU for GL 400001",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.458423"
+    },
+    {
+      "test_name": "Pandas Integration - Row 3 Value Detection",
+      "status": "PASS",
+      "details": "Correctly detected BU value '1' for GL 100010",
+      "error": null,
+      "timestamp": "2025-08-07T16:12:36.458612"
+    },
+    {
+      "test_name": "Database FSG Configuration",
+      "status": "ERROR",
+      "details": "",
+      "error": "tuple indices must be integers or slices, not str",
+      "timestamp": "2025-08-07T16:12:36.459982"
+    }
+  ],
+  "summary": {
+    "total": 25,
+    "passed": 8,
+    "failed": 15,
+    "errors": 2
+  }
+}

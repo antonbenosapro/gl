@@ -1,0 +1,7 @@
+document_number,line_number,gl_account,debit_amount,credit_amount,description,cost_center
+UPLOAD_TEST_004,1,640001,800.0,0.0,Utilities Expense,CC100
+UPLOAD_TEST_004,2,200001,0.0,800.0,Utilities Payable,CC100
+UPLOAD_TEST_005,1,650001,2400.0,0.0,Insurance Expense,CC200
+UPLOAD_TEST_005,2,200002,0.0,2400.0,Insurance Payable,CC200
+UPLOAD_TEST_006,1,660001,500.0,0.0,Office Supplies,CC300
+UPLOAD_TEST_006,2,200003,0.0,500.0,Supplies Payable,CC300

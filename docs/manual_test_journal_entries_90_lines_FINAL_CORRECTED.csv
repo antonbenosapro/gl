@@ -1,0 +1,91 @@
+document_number,company_code,line_number,posting_date,gl_account,debit_amount,credit_amount,description,cost_center,currency_code,reference
+MANUAL_TEST_001,1000,1,2025-08-06,100001,50000.00,0.00,Cash Receipt - Customer Payment,SALES01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,2,2025-08-06,110000,25000.00,0.00,Accounts Receivable - Trade,SALES01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,3,2025-08-06,120000,15000.00,0.00,Inventory - Raw Materials,PROD01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,4,2025-08-06,140000,35000.00,0.00,Equipment - Manufacturing,PROD01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,5,2025-08-06,150000,20000.00,0.00,Other Assets,FAC01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,6,2025-08-06,160000,12000.00,0.00,Investments,TRANS01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,7,2025-08-06,170000,8000.00,0.00,Property Plant Equipment,ADMIN01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,8,2025-08-06,100002,18000.00,0.00,Cash - Savings Account,IT01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,9,2025-08-06,100003,9000.00,0.00,Cash - Operating Account,IT01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,10,2025-08-06,100010,8000.00,0.00,Cash in Bank,ADMIN01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,11,2025-08-06,500001,25000.00,0.00,Cost of Goods Sold,PROD01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,12,2025-08-06,500002,15000.00,0.00,Salaries and Wages,HR01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,13,2025-08-06,500200,12000.00,0.00,Rent Expense,FAC01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,14,2025-08-06,500201,8000.00,0.00,Utilities Expense,FAC01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,15,2025-08-06,500301,10000.00,0.00,Marketing Expense,MKTG01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,16,2025-08-06,200001,0.00,50000.00,Accounts Payable - Trade,PURCH01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,17,2025-08-06,200002,0.00,25000.00,Accounts Payable,HR01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,18,2025-08-06,200100,0.00,15000.00,Accrued Wages,HR01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,19,2025-08-06,220000,0.00,35000.00,Sales Tax Payable,TAX01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,20,2025-08-06,220100,0.00,20000.00,Notes Payable - Short Term,FIN01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,21,2025-08-06,225001,0.00,12000.00,Payroll Payable,LEASE01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,22,2025-08-06,240000,0.00,8000.00,Unearned Revenue,SALES01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,23,2025-08-06,250000,0.00,18000.00,Equipment Loan,SALES01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,24,2025-08-06,230001,0.00,9000.00,Sales Tax Payable,SERV01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,25,2025-08-06,300100,0.00,8000.00,Common Stock,EQUITY01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,26,2025-08-06,300002,0.00,25000.00,Retained Earnings,EQUITY01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,27,2025-08-06,410001,0.00,15000.00,Sales Revenue,SALES01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,28,2025-08-06,400002,0.00,12000.00,Sales Revenue - Services,SERV01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,29,2025-08-06,400100,0.00,8000.00,Interest Income,FIN01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_001,1000,30,2025-08-06,400200,0.00,10000.00,Other Income,MISC01,USD,Manual Test Entry 1 - Large Multi-Line Transaction
+MANUAL_TEST_002,1000,1,2025-08-06,100001,45000.00,0.00,Cash - Operating Account,CASH01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,2,2025-08-06,115001,28000.00,0.00,Accounts Receivable - Trade,SALES01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,3,2025-08-06,120001,22000.00,0.00,Inventory - Finished Goods,PROD01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,4,2025-08-06,140002,18000.00,0.00,Prepayments,PROD01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,5,2025-08-06,150001,12000.00,0.00,Equipment - IFRS Valuation,FAC01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,6,2025-08-06,160000,15000.00,0.00,Investments,TRANS01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,7,2025-08-06,170000,8000.00,0.00,Property Plant Equipment,ADMIN01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,8,2025-08-06,100002,9000.00,0.00,Cash - Savings Account,IT01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,9,2025-08-06,100003,14000.00,0.00,Cash - Operating Account,IT01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,10,2025-08-06,100010,6000.00,0.00,Cash in Bank,ADMIN01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,11,2025-08-06,500001,11000.00,0.00,Cost of Goods Sold,PROD01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,12,2025-08-06,500002,7000.00,0.00,Salaries and Wages,HR01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,13,2025-08-06,500200,5000.00,0.00,Rent Expense,FAC01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,14,2025-08-06,500201,16000.00,0.00,Utilities Expense,FAC01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,15,2025-08-06,500301,13000.00,0.00,Marketing Expense,MKTG01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,16,2025-08-06,200001,0.00,45000.00,Accounts Payable - Trade,PURCH01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,17,2025-08-06,200002,0.00,28000.00,Accounts Payable,PAYROLL01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,18,2025-08-06,200100,0.00,22000.00,Accrued Wages,HR01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,19,2025-08-06,200101,0.00,18000.00,Payroll Taxes Payable,TAX01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,20,2025-08-06,220000,0.00,12000.00,Sales Tax Payable,FIN01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,21,2025-08-06,220100,0.00,15000.00,Notes Payable - Short Term,LEASE01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,22,2025-08-06,225001,0.00,8000.00,Payroll Payable,SALES01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,23,2025-08-06,240000,0.00,9000.00,Unearned Revenue,SALES01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,24,2025-08-06,250000,0.00,14000.00,Equipment Loan,ACCR01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,25,2025-08-06,300100,0.00,6000.00,Common Stock,EQUITY01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,26,2025-08-06,300002,0.00,11000.00,Retained Earnings,EQUITY01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,27,2025-08-06,410001,0.00,7000.00,Sales Revenue,SALES01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,28,2025-08-06,400002,0.00,5000.00,Sales Revenue - Services,SERV01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,29,2025-08-06,400100,0.00,16000.00,Interest Income,FIN01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_002,1000,30,2025-08-06,400200,0.00,13000.00,Other Income,MISC01,USD,Manual Test Entry 2 - Complex Expense Allocation
+MANUAL_TEST_003,1000,1,2025-08-06,100001,75000.00,0.00,Test Cash Account,CASH01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,2,2025-08-06,100012,25000.00,0.00,Petty Cash,PAYROLL01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,3,2025-08-06,100013,18000.00,0.00,Petty Cash,ADMIN01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,4,2025-08-06,110000,42000.00,0.00,Accounts Receivable,SALES01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,5,2025-08-06,115001,28000.00,0.00,Accounts Receivable - Trade,EXPORT01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,6,2025-08-06,115002,15000.00,0.00,Accounts Receivable - GBP,FIN01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,7,2025-08-06,120000,38000.00,0.00,Inventory - Raw Materials,ELEC01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,8,2025-08-06,120001,22000.00,0.00,Inventory - Finished Goods,AUTO01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,9,2025-08-06,120002,16000.00,0.00,Accounts Receivable,OFFICE01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,10,2025-08-06,140000,55000.00,0.00,Equipment,PRODA01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,11,2025-08-06,140002,33000.00,0.00,Prepayments,PRODB01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,12,2025-08-06,140050,27000.00,0.00,Accumulated Depreciation - Equipment,QC01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,13,2025-08-06,140100,45000.00,0.00,Office Furniture,PLANT01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,14,2025-08-06,150000,32000.00,0.00,Other Assets,ADMIN01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,15,2025-08-06,150001,28000.00,0.00,Equipment - IFRS Valuation,WARE01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,16,2025-08-06,200001,0.00,75000.00,Test Accounts Payable,PURCH01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,17,2025-08-06,200002,0.00,25000.00,Accounts Payable,SERVICES01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,18,2025-08-06,200010,0.00,18000.00,Accounts Payable,FAC01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,19,2025-08-06,200100,0.00,42000.00,Accrued Wages,PAYROLL01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,20,2025-08-06,200101,0.00,28000.00,Payroll Taxes Payable,ADMIN01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,21,2025-08-06,210001,0.00,15000.00,Accounts Payable - Trade,SALES01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,22,2025-08-06,210002,0.00,38000.00,Accounts Payable - GBP,BENEFITS01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,23,2025-08-06,220000,0.00,22000.00,Sales Tax Payable,TAX01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,24,2025-08-06,220100,0.00,16000.00,Notes Payable - Short Term,TAX01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,25,2025-08-06,225001,0.00,55000.00,Payroll Payable,TAX01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,26,2025-08-06,230001,0.00,33000.00,Sales Tax Payable,DEBT01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,27,2025-08-06,240000,0.00,27000.00,Unearned Revenue,MORT01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,28,2025-08-06,250000,0.00,45000.00,Equipment Loan,STOCK01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,29,2025-08-06,300100,0.00,32000.00,Common Stock,APIC01,USD,Manual Test Entry 3 - Multi-Department Reconciliation
+MANUAL_TEST_003,1000,30,2025-08-06,300002,0.00,28000.00,Retained Earnings,RETAIN01,USD,Manual Test Entry 3 - Multi-Department Reconciliation

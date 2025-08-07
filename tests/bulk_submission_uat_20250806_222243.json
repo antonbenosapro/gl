@@ -1,0 +1,86 @@
+{
+  "test_run_id": "UAT_BULK_SUBMISSION_20250806_222243",
+  "start_time": "2025-08-06 22:22:43.123476",
+  "test_cases": [
+    {
+      "test_name": "Entry Selection and Filtering",
+      "status": "PASSED",
+      "details": "Found 23633 draft entries for selection",
+      "error_msg": "",
+      "timestamp": "2025-08-06T22:22:43.163867"
+    },
+    {
+      "test_name": "Bulk Upload Validation",
+      "status": "PASSED",
+      "details": "Validation caught 3 errors and 1 warnings as expected",
+      "error_msg": "",
+      "timestamp": "2025-08-06T22:22:43.165486"
+    },
+    {
+      "test_name": "Approval Routing Logic",
+      "status": "PASSED",
+      "details": "Successfully routed 3 documents with varying amounts",
+      "error_msg": "",
+      "timestamp": "2025-08-06T22:22:43.178088"
+    },
+    {
+      "test_name": "Bulk Submission Process",
+      "status": "PASSED",
+      "details": "Successfully submitted 3/3 entries",
+      "error_msg": "",
+      "timestamp": "2025-08-06T22:22:43.222560"
+    },
+    {
+      "test_name": "Submission Tracking",
+      "status": "FAILED",
+      "details": "",
+      "error_msg": "tuple indices must be integers or slices, not str",
+      "timestamp": "2025-08-06T22:22:43.223860"
+    },
+    {
+      "test_name": "Notification System",
+      "status": "FAILED",
+      "details": "",
+      "error_msg": "(psycopg2.errors.NotNullViolation) null value in column \"workflow_instance_id\" of relation \"approval_notifications\" violates not-null constraint\nDETAIL:  Failing row contains (95, null, test_user@test.com, TEST, UAT Test Notification, This is a test notification for UAT, 2025-08-06 22:22:43.224366, null, f).\n\n[SQL: \n                INSERT INTO approval_notifications\n                (recipient, notification_type, subject, message, workflow_instance_id)\n                VALUES (%(recipient)s, 'TEST', 'UAT Test Notification', \n                        'This is a test notification for UAT', NULL)\n            ]\n[parameters: {'recipient': 'test_user@test.com'}]\n(Background on this error at: https://sqlalche.me/e/20/gkpj)",
+      "timestamp": "2025-08-06T22:22:43.225009"
+    },
+    {
+      "test_name": "Withdrawal Functionality",
+      "status": "FAILED",
+      "details": "",
+      "error_msg": "This Connection is closed",
+      "timestamp": "2025-08-06T22:22:43.228631"
+    },
+    {
+      "test_name": "Comment Functionality",
+      "status": "PASSED",
+      "details": "Successfully added comment to TEST_JE_20250806_004",
+      "error_msg": "",
+      "timestamp": "2025-08-06T22:22:43.234436"
+    },
+    {
+      "test_name": "Performance Metrics",
+      "status": "PASSED",
+      "details": "Query completed in 0.00 seconds for 100 records",
+      "error_msg": "",
+      "timestamp": "2025-08-06T22:22:43.236355"
+    },
+    {
+      "test_name": "Error Handling",
+      "status": "PASSED",
+      "details": "All 2 error scenarios handled correctly",
+      "error_msg": "",
+      "timestamp": "2025-08-06T22:22:43.238048"
+    }
+  ],
+  "summary": {
+    "total_tests": 10,
+    "passed": 7,
+    "failed": 3,
+    "warnings": 0,
+    "skipped": 0,
+    "pass_rate": 70.0,
+    "end_time": "2025-08-06 22:22:43.238736",
+    "duration": "0:00:00.115262"
+  }
+}

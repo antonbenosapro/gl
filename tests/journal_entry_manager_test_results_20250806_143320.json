@@ -1,0 +1,530 @@
+{
+  "test_summary": {
+    "start_time": "2025-08-06T14:33:20.150233",
+    "end_time": "2025-08-06T14:33:20.769108",
+    "duration_seconds": 0.618875,
+    "total_tests": 42,
+    "tests_passed": 42,
+    "tests_failed": 0,
+    "success_rate_percentage": 100.0,
+    "overall_status": "PRODUCTION READY"
+  },
+  "functionality_coverage": {
+    "Database Infrastructure": {
+      "passed": 6,
+      "failed": 0
+    },
+    "Document Number Generation": {
+      "passed": 3,
+      "failed": 0
+    },
+    "Journal Entry Creation": {
+      "passed": 1,
+      "failed": 0
+    },
+    "Data Validation": {
+      "passed": 4,
+      "failed": 0
+    },
+    "Journal Entry Retrieval": {
+      "passed": 3,
+      "failed": 0
+    },
+    "Journal Entry Modification": {
+      "passed": 2,
+      "failed": 0
+    },
+    "Workflow Integration": {
+      "passed": 3,
+      "failed": 0
+    },
+    "Document Status Management": {
+      "passed": 3,
+      "failed": 0
+    },
+    "Search and Filter": {
+      "passed": 4,
+      "failed": 0
+    },
+    "PDF Generation": {
+      "passed": 2,
+      "failed": 0
+    },
+    "Balance Validation": {
+      "passed": 2,
+      "failed": 0
+    },
+    "GL Account Validation": {
+      "passed": 3,
+      "failed": 0
+    },
+    "Audit Trail": {
+      "passed": 2,
+      "failed": 0
+    },
+    "Error Handling": {
+      "passed": 2,
+      "failed": 0
+    },
+    "Performance Testing": {
+      "passed": 2,
+      "failed": 0
+    }
+  },
+  "test_details": [
+    {
+      "test_name": "Database Connection",
+      "functionality": "Database Infrastructure",
+      "status": "\u2705 PASS",
+      "message": "Database connection successful",
+      "timestamp": "2025-08-06T14:33:20.159610",
+      "details": {}
+    },
+    {
+      "test_name": "Table journalentryheader Existence",
+      "functionality": "Database Infrastructure",
+      "status": "\u2705 PASS",
+      "message": "Table journalentryheader exists",
+      "timestamp": "2025-08-06T14:33:20.161055",
+      "details": {}
+    },
+    {
+      "test_name": "Table journalentryline Existence",
+      "functionality": "Database Infrastructure",
+      "status": "\u2705 PASS",
+      "message": "Table journalentryline exists",
+      "timestamp": "2025-08-06T14:33:20.161603",
+      "details": {}
+    },
+    {
+      "test_name": "Table glaccount Existence",
+      "functionality": "Database Infrastructure",
+      "status": "\u2705 PASS",
+      "message": "Table glaccount exists",
+      "timestamp": "2025-08-06T14:33:20.162048",
+      "details": {}
+    },
+    {
+      "test_name": "Table companycode Existence",
+      "functionality": "Database Infrastructure",
+      "status": "\u2705 PASS",
+      "message": "Table companycode exists",
+      "timestamp": "2025-08-06T14:33:20.162466",
+      "details": {}
+    },
+    {
+      "test_name": "Journal Header Table Structure",
+      "functionality": "Database Infrastructure",
+      "status": "\u2705 PASS",
+      "message": "All required columns present",
+      "timestamp": "2025-08-06T14:33:20.165662",
+      "details": {
+        "available_columns": 37,
+        "missing_columns": []
+      }
+    },
+    {
+      "test_name": "Basic Document Number Generation",
+      "functionality": "Document Number Generation",
+      "status": "\u2705 PASS",
+      "message": "Generated document number: JE01469",
+      "timestamp": "2025-08-06T14:33:20.675445",
+      "details": {
+        "generated_number": "JE01469"
+      }
+    },
+    {
+      "test_name": "Document Number Uniqueness",
+      "functionality": "Document Number Generation",
+      "status": "\u2705 PASS",
+      "message": "Generated unique numbers: JE01469 != JE01470",
+      "timestamp": "2025-08-06T14:33:20.676461",
+      "details": {
+        "first_number": "JE01469",
+        "second_number": "JE01470"
+      }
+    },
+    {
+      "test_name": "Different Prefix Generation",
+      "functionality": "Document Number Generation",
+      "status": "\u2705 PASS",
+      "message": "JE: JE01471, RV: RV00018",
+      "timestamp": "2025-08-06T14:33:20.678486",
+      "details": {
+        "je_number": "JE01471",
+        "rv_number": "RV00018"
+      }
+    },
+    {
+      "test_name": "Journal Entry Creation",
+      "functionality": "Journal Entry Creation",
+      "status": "\u2705 PASS",
+      "message": "Created document FUNC20250806143320 with 2 lines",
+      "timestamp": "2025-08-06T14:33:20.689568",
+      "details": {
+        "document_number": "FUNC20250806143320",
+        "header_created": true,
+        "lines_created": 2,
+        "expected_lines": 2
+      }
+    },
+    {
+      "test_name": "Header Validation - Valid Data",
+      "functionality": "Data Validation",
+      "status": "\u2705 PASS",
+      "message": "Valid header data passed validation",
+      "timestamp": "2025-08-06T14:33:20.689926",
+      "details": {}
+    },
+    {
+      "test_name": "Header Validation - Invalid Data",
+      "functionality": "Data Validation",
+      "status": "\u2705 PASS",
+      "message": "Invalid header data correctly rejected",
+      "timestamp": "2025-08-06T14:33:20.689949",
+      "details": {}
+    },
+    {
+      "test_name": "Line Validation - Valid Data",
+      "functionality": "Data Validation",
+      "status": "\u2705 PASS",
+      "message": "Valid line data passed validation",
+      "timestamp": "2025-08-06T14:33:20.689969",
+      "details": {}
+    },
+    {
+      "test_name": "Journal Entry Balance Validation",
+      "functionality": "Data Validation",
+      "status": "\u2705 PASS",
+      "message": "Balanced entry passed validation",
+      "timestamp": "2025-08-06T14:33:20.689992",
+      "details": {}
+    },
+    {
+      "test_name": "Header Retrieval",
+      "functionality": "Journal Entry Retrieval",
+      "status": "\u2705 PASS",
+      "message": "Header retrieved for document FUNC20250806143320",
+      "timestamp": "2025-08-06T14:33:20.690636",
+      "details": {
+        "document_number": "FUNC20250806143320",
+        "header_found": true
+      }
+    },
+    {
+      "test_name": "Lines Retrieval",
+      "functionality": "Journal Entry Retrieval",
+      "status": "\u2705 PASS",
+      "message": "Retrieved 2 lines for document FUNC20250806143320",
+      "timestamp": "2025-08-06T14:33:20.691026",
+      "details": {
+        "document_number": "FUNC20250806143320",
+        "lines_count": 2
+      }
+    },
+    {
+      "test_name": "Balance Calculation",
+      "functionality": "Journal Entry Retrieval",
+      "status": "\u2705 PASS",
+      "message": "Balance check: $1,000.00 Dr / $1,000.00 Cr - Balanced",
+      "timestamp": "2025-08-06T14:33:20.691045",
+      "details": {
+        "total_debit": 1000.0,
+        "total_credit": 1000.0,
+        "is_balanced": true
+      }
+    },
+    {
+      "test_name": "Header Modification",
+      "functionality": "Journal Entry Modification",
+      "status": "\u2705 PASS",
+      "message": "Reference updated to 'MODIFIED_143320'",
+      "timestamp": "2025-08-06T14:33:20.692052",
+      "details": {
+        "document_number": "FUNC20250806143320",
+        "new_reference": "MODIFIED_143320",
+        "updated_reference": "MODIFIED_143320"
+      }
+    },
+    {
+      "test_name": "Line Modification",
+      "functionality": "Journal Entry Modification",
+      "status": "\u2705 PASS",
+      "message": "Line 1 description updated to 'MODIFIED LINE 143320'",
+      "timestamp": "2025-08-06T14:33:20.692722",
+      "details": {
+        "document_number": "FUNC20250806143320",
+        "new_description": "MODIFIED LINE 143320"
+      }
+    },
+    {
+      "test_name": "Workflow Status Update",
+      "functionality": "Workflow Integration",
+      "status": "\u2705 PASS",
+      "message": "Status updated to 'PENDING_APPROVAL'",
+      "timestamp": "2025-08-06T14:33:20.694886",
+      "details": {
+        "document_number": "FUNC20250806143320",
+        "workflow_status": "PENDING_APPROVAL"
+      }
+    },
+    {
+      "test_name": "Workflow Status: APPROVED",
+      "functionality": "Workflow Integration",
+      "status": "\u2705 PASS",
+      "message": "Status progression to 'APPROVED' successful",
+      "timestamp": "2025-08-06T14:33:20.695652",
+      "details": {}
+    },
+    {
+      "test_name": "Workflow Status: POSTED",
+      "functionality": "Workflow Integration",
+      "status": "\u2705 PASS",
+      "message": "Status progression to 'POSTED' successful",
+      "timestamp": "2025-08-06T14:33:20.696185",
+      "details": {}
+    },
+    {
+      "test_name": "Status Transition: DRAFT \u2192 PENDING_APPROVAL",
+      "functionality": "Document Status Management",
+      "status": "\u2705 PASS",
+      "message": "Transition successful: PENDING_APPROVAL",
+      "timestamp": "2025-08-06T14:33:20.698640",
+      "details": {
+        "from_status": "DRAFT",
+        "to_status": "PENDING_APPROVAL",
+        "actual_status": "PENDING_APPROVAL"
+      }
+    },
+    {
+      "test_name": "Status Transition: PENDING_APPROVAL \u2192 APPROVED",
+      "functionality": "Document Status Management",
+      "status": "\u2705 PASS",
+      "message": "Transition successful: APPROVED",
+      "timestamp": "2025-08-06T14:33:20.699170",
+      "details": {
+        "from_status": "PENDING_APPROVAL",
+        "to_status": "APPROVED",
+        "actual_status": "APPROVED"
+      }
+    },
+    {
+      "test_name": "Status Transition: APPROVED \u2192 POSTED",
+      "functionality": "Document Status Management",
+      "status": "\u2705 PASS",
+      "message": "Transition successful: POSTED",
+      "timestamp": "2025-08-06T14:33:20.699719",
+      "details": {
+        "from_status": "APPROVED",
+        "to_status": "POSTED",
+        "actual_status": "POSTED"
+      }
+    },
+    {
+      "test_name": "Document Search by Number",
+      "functionality": "Search and Filter",
+      "status": "\u2705 PASS",
+      "message": "Found 1 documents matching 'FUNC'",
+      "timestamp": "2025-08-06T14:33:20.710093",
+      "details": {
+        "search_results": 1
+      }
+    },
+    {
+      "test_name": "Document Search by Reference",
+      "functionality": "Search and Filter",
+      "status": "\u2705 PASS",
+      "message": "Found 43 documents with reference containing 'TEST'",
+      "timestamp": "2025-08-06T14:33:20.728141",
+      "details": {
+        "reference_results": 43
+      }
+    },
+    {
+      "test_name": "Date Range Filtering",
+      "functionality": "Search and Filter",
+      "status": "\u2705 PASS",
+      "message": "Found 52 documents created in last day",
+      "timestamp": "2025-08-06T14:33:20.731300",
+      "details": {
+        "date_range_results": 52
+      }
+    },
+    {
+      "test_name": "Status Filtering",
+      "functionality": "Search and Filter",
+      "status": "\u2705 PASS",
+      "message": "Found 23631 documents with DRAFT/PENDING_APPROVAL status",
+      "timestamp": "2025-08-06T14:33:20.733514",
+      "details": {
+        "status_results": 23631
+      }
+    },
+    {
+      "test_name": "HTML Generation",
+      "functionality": "PDF Generation",
+      "status": "\u2705 PASS",
+      "message": "Generated HTML content (3889 characters)",
+      "timestamp": "2025-08-06T14:33:20.735487",
+      "details": {
+        "html_length": 3889
+      }
+    },
+    {
+      "test_name": "PDF Generation",
+      "functionality": "PDF Generation",
+      "status": "\u2705 PASS",
+      "message": "Generated PDF file (2709 bytes)",
+      "timestamp": "2025-08-06T14:33:20.740495",
+      "details": {
+        "file_type": "pdf",
+        "file_size": 2709
+      }
+    },
+    {
+      "test_name": "Unbalanced Entry Detection",
+      "functionality": "Balance Validation",
+      "status": "\u2705 PASS",
+      "message": "Correctly detected unbalanced entry: $1,000.00 Dr vs $500.00 Cr (diff: $500.00)",
+      "timestamp": "2025-08-06T14:33:20.742476",
+      "details": {
+        "total_debits": 1000.0,
+        "total_credits": 500.0,
+        "balance_difference": 500.0
+      }
+    },
+    {
+      "test_name": "Balanced Entry Validation",
+      "functionality": "Balance Validation",
+      "status": "\u2705 PASS",
+      "message": "Correctly validated balanced entry: $1,000.00 Dr vs $1,000.00 Cr (diff: $0.00)",
+      "timestamp": "2025-08-06T14:33:20.743168",
+      "details": {
+        "total_debits": 1000.0,
+        "total_credits": 1000.0,
+        "balance_difference": 0.0
+      }
+    },
+    {
+      "test_name": "Valid GL Account Check",
+      "functionality": "GL Account Validation",
+      "status": "\u2705 PASS",
+      "message": "GL account '100001' exists in system",
+      "timestamp": "2025-08-06T14:33:20.745100",
+      "details": {
+        "account_id": "100001",
+        "exists": true
+      }
+    },
+    {
+      "test_name": "Invalid GL Account Rejection",
+      "functionality": "GL Account Validation",
+      "status": "\u2705 PASS",
+      "message": "Invalid GL account 'INVALID999' correctly not found",
+      "timestamp": "2025-08-06T14:33:20.745324",
+      "details": {
+        "account_id": "INVALID999",
+        "should_not_exist": true
+      }
+    },
+    {
+      "test_name": "GL Account Metadata Retrieval",
+      "functionality": "GL Account Validation",
+      "status": "\u2705 PASS",
+      "message": "Retrieved metadata for 2 GL accounts",
+      "timestamp": "2025-08-06T14:33:20.745683",
+      "details": {
+        "accounts_retrieved": 2
+      }
+    },
+    {
+      "test_name": "Creation Audit Data",
+      "functionality": "Audit Trail",
+      "status": "\u2705 PASS",
+      "message": "Audit data present: created by 'FUNC_TEST_USER' at 2025-08-06 14:33:20.678860",
+      "timestamp": "2025-08-06T14:33:20.746337",
+      "details": {
+        "created_by": "FUNC_TEST_USER",
+        "created_at": "2025-08-06 14:33:20.678860",
+        "workflow_status": "POSTED"
+      }
+    },
+    {
+      "test_name": "Modification Tracking",
+      "functionality": "Audit Trail",
+      "status": "\u2705 PASS",
+      "message": "Modification tracked: 'MODIFIED_143320' \u2192 'AUDIT_TEST_143320'",
+      "timestamp": "2025-08-06T14:33:20.747224",
+      "details": {
+        "original": "MODIFIED_143320",
+        "updated": "AUDIT_TEST_143320"
+      }
+    },
+    {
+      "test_name": "Duplicate Document Prevention",
+      "functionality": "Error Handling",
+      "status": "\u2705 PASS",
+      "message": "Duplicate document creation correctly prevented",
+      "timestamp": "2025-08-06T14:33:20.749612",
+      "details": {
+        "duplicate_document": "DU143320"
+      }
+    },
+    {
+      "test_name": "Foreign Key Constraint Enforcement",
+      "functionality": "Error Handling",
+      "status": "\u2705 PASS",
+      "message": "Foreign key constraint correctly enforced",
+      "timestamp": "2025-08-06T14:33:20.750052",
+      "details": {
+        "invalid_gl_account": "INVALID_GL_ACCOUNT"
+      }
+    },
+    {
+      "test_name": "Recent Documents Query Performance",
+      "functionality": "Performance Testing",
+      "status": "\u2705 PASS",
+      "message": "Query completed in 7.75ms (Good)",
+      "timestamp": "2025-08-06T14:33:20.765446",
+      "details": {
+        "query_time_ms": 7.745981216430664
+      }
+    },
+    {
+      "test_name": "Document Creation Performance",
+      "functionality": "Performance Testing",
+      "status": "\u2705 PASS",
+      "message": "Document with 5 lines created in 3.64ms (Good)",
+      "timestamp": "2025-08-06T14:33:20.769096",
+      "details": {
+        "create_time_ms": 3.635883331298828,
+        "lines_created": 5
+      }
+    }
+  ],
+  "test_documents_created": [
+    [
+      "FUNC20250806143320",
+      "1000"
+    ],
+    [
+      "STAT20250806143320",
+      "1000"
+    ],
+    [
+      "UNBAL20250806143320",
+      "1000"
+    ],
+    [
+      "PERF20250806143320",
+      "1000"
+    ]
+  ],
+  "functional_readiness": {
+    "database_operations": true,
+    "crud_operations": true,
+    "validation_systems": true,
+    "workflow_integration": true,
+    "user_interface_ready": true
+  }
+}

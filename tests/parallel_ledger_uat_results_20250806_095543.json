@@ -1,0 +1,239 @@
+{
+  "uat_summary": {
+    "test_start_time": "2025-08-06T09:55:43.652703",
+    "test_end_time": "2025-08-06T09:55:43.687515",
+    "test_duration_seconds": 0.034812,
+    "total_scenarios": 14,
+    "scenarios_passed": 10,
+    "scenarios_failed": 4,
+    "success_rate_percentage": 71.42857142857143,
+    "uat_status": "CONDITIONAL ACCEPTANCE"
+  },
+  "business_value_validated": [
+    "Real-time financial position visibility across all accounting standards",
+    "Quantified automation benefits and operational efficiency gains",
+    "Proactive system monitoring and performance management",
+    "Multi-currency transaction support with current rates",
+    "Automated parallel posting with business rule application",
+    "Multi-currency business operations with real-time exchange rates",
+    "Fast, responsive user experience",
+    "Multi-standard accounting compliance (US GAAP, IFRS, Tax, Management)"
+  ],
+  "user_stories_tested": [
+    "As a system administrator, I want to verify all parallel ledgers are properly configured for different accounting standards",
+    "As a system administrator, I want to ensure current exchange rates are available for multi-currency operations",
+    "As a system administrator, I want to ensure derivation rules are configured for automated parallel posting",
+    "As a finance user, I want to create a balanced journal entry",
+    "As a controller, I want to generate IFRS-compliant trial balance reports",
+    "As a controller, I want to compare financial positions across accounting standards",
+    "As a CFO, I want a real-time dashboard showing account balances across all accounting standards for strategic decision making",
+    "As a CFO, I want to understand the business impact and efficiency gains from parallel ledger automation",
+    "As an accountant, I want to process transactions in different currencies with automatic translation to ledger base currencies",
+    "As an auditor, I want to trace journal entry lifecycle",
+    "As a system administrator, I want to monitor system health, performance metrics, and operational status",
+    "As a user, I want the system to respond quickly to my queries (< 50ms)",
+    "As a user, I want the system to respond quickly to my queries (< 10ms)",
+    "As a user, I want the system to respond quickly to my queries (< 100ms)"
+  ],
+  "performance_benchmarks": {
+    "Database Query Response": 0.5693435668945312,
+    "Exchange Rate Lookup": 0.3151893615722656,
+    "Account Balance Query": 0.36787986755371094
+  },
+  "uat_scenario_details": [
+    {
+      "scenario_name": "Multi-Ledger Configuration Validation",
+      "user_story": "As a system administrator, I want to verify all parallel ledgers are properly configured for different accounting standards",
+      "status": "\u2705 PASS",
+      "message": "Validated 5 ledgers configuration",
+      "business_value": "Multi-standard accounting compliance (US GAAP, IFRS, Tax, Management)",
+      "timestamp": "2025-08-06T09:55:43.662576",
+      "details": {
+        "L1": "\u2705 Correctly configured",
+        "2L": "\u2705 Correctly configured",
+        "3L": "\u2705 Correctly configured",
+        "4L": "\u2705 Correctly configured",
+        "CL": "\u2705 Correctly configured"
+      }
+    },
+    {
+      "scenario_name": "Exchange Rate System Validation",
+      "user_story": "As a system administrator, I want to ensure current exchange rates are available for multi-currency operations",
+      "status": "\u2705 PASS",
+      "message": "Found 25 total rates, 25 recent rates",
+      "business_value": "Multi-currency transaction support with current rates",
+      "timestamp": "2025-08-06T09:55:43.663663",
+      "details": {
+        "total_rates": 25,
+        "recent_rates": 25
+      }
+    },
+    {
+      "scenario_name": "Business Rules Configuration Validation",
+      "user_story": "As a system administrator, I want to ensure derivation rules are configured for automated parallel posting",
+      "status": "\u2705 PASS",
+      "message": "Found 34 total rules, 34 active rules",
+      "business_value": "Automated parallel posting with business rule application",
+      "timestamp": "2025-08-06T09:55:43.664551",
+      "details": {
+        "total_rules": 34,
+        "active_rules": 34
+      }
+    },
+    {
+      "scenario_name": "Journal Entry Creation",
+      "user_story": "As a finance user, I want to create a balanced journal entry",
+      "status": "\u274c FAIL",
+      "message": "Journal entry creation failed: (psycopg2.errors.ForeignKeyViolation) insert or update on table \"journalentryline\" violates foreign key constraint \"journalentryline_glaccountid_fkey\"\nDETAIL:  Key (glaccountid)=(230001) is not present in table \"glaccount\".\n\n[SQL: \n                        INSERT INTO journalentryline (\n                            documentnumber, companycodeid, linenumber, glaccountid,\n                            debitamount, creditamount, description\n                        ) VALUES (\n                            %(doc_number)s, %(company_code)s, %(line_number)s, %(account)s,\n                            %(debit_amount)s, %(credit_amount)s, %(description)s\n                        )\n                    ]\n[parameters: {'doc_number': 'UAT20250806095543', 'company_code': '1000', 'line_number': 3, 'account': '230001', 'debit_amount': 0.0, 'credit_amount': 600.0, 'description': 'Sales tax payable'}]\n(Background on this error at: https://sqlalche.me/e/20/gkpj)",
+      "business_value": null,
+      "timestamp": "2025-08-06T09:55:43.674690",
+      "details": {}
+    },
+    {
+      "scenario_name": "IFRS Trial Balance Generation",
+      "user_story": "As a controller, I want to generate IFRS-compliant trial balance reports",
+      "status": "\u274c FAIL",
+      "message": "Report generation failed (known schema issue): (psycopg2.errors.UndefinedColumn) column ag.account_group_code does not exist\nLINE 19: ...JOIN account_groups ag ON ga.account_group_code = ag.account...\n                                                              ^\nHINT:  Perhaps you meant to reference the column \"ga.account_group_code\".\n\n[SQL: \n                    SELECT \n                        ga.glaccountid,\n                        ga.accountname,\n                        ga.accounttype,\n                        ag.account_group_name,\n                        ag.account_type as account_classification,\n                        COALESCE(SUM(gab.ytd_debits), 0) as total_debits,\n                        COALESCE(SUM(gab.ytd_credits), 0) as total_credits,\n                        COALESCE(SUM(gab.ytd_balance), 0) as net_balance,\n                        ga.currencycode as account_currency,\n                        COUNT(DISTINCT gab.posting_period) as periods_with_activity\n                    FROM glaccount ga\n                    LEFT JOIN gl_account_balances gab ON ga.glaccountid = gab.gl_account\n                        AND gab.company_code = %(company_code)s\n                        AND gab.ledger_id = %(ledger_id)s\n                        AND gab.fiscal_year = %(fiscal_year)s\n                        \n                    LEFT JOIN account_groups ag ON ga.account_group_code = ag.account_group_code\n                    WHERE ga.companycodeid = %(company_code)s\n                    GROUP BY ga.glaccountid, ga.accountname, ga.accounttype, \n                             ag.account_group_name, ag.account_type, ga.currencycode\n                    HAVING COALESCE(SUM(gab.ytd_debits), 0) != 0 \n                        OR COALESCE(SUM(gab.ytd_credits), 0) != 0\n                    ORDER BY ga.glaccountid\n                ]\n[parameters: {'company_code': '1000', 'ledger_id': '2L', 'fiscal_year': 2025}]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "business_value": null,
+      "timestamp": "2025-08-06T09:55:43.676175",
+      "details": {
+        "known_issue": "Account group column reference issue identified in E2E testing"
+      }
+    },
+    {
+      "scenario_name": "Multi-Standard Comparative Analysis",
+      "user_story": "As a controller, I want to compare financial positions across accounting standards",
+      "status": "\u274c FAIL",
+      "message": "Comparative analysis failed: No valid ledger data found",
+      "business_value": null,
+      "timestamp": "2025-08-06T09:55:43.678084",
+      "details": {}
+    },
+    {
+      "scenario_name": "Executive Balance Dashboard",
+      "user_story": "As a CFO, I want a real-time dashboard showing account balances across all accounting standards for strategic decision making",
+      "status": "\u2705 PASS",
+      "message": "Executive dashboard generated with 3 accounts in 1.1ms",
+      "business_value": "Real-time financial position visibility across all accounting standards",
+      "timestamp": "2025-08-06T09:55:43.679228",
+      "details": {
+        "dashboard_load_time_ms": 1.1317729949951172,
+        "accounts_monitored": 3,
+        "real_time_capability": true
+      }
+    },
+    {
+      "scenario_name": "Automation Impact Analysis",
+      "user_story": "As a CFO, I want to understand the business impact and efficiency gains from parallel ledger automation",
+      "status": "\u2705 PASS",
+      "message": "Generated automation impact analysis for 0 documents in 1.5ms",
+      "business_value": "Quantified automation benefits and operational efficiency gains",
+      "timestamp": "2025-08-06T09:55:43.680755",
+      "details": {
+        "analysis_time_ms": 1.5118122100830078,
+        "documents_analyzed": 0,
+        "automation_metrics_available": true,
+        "business_impact_quantified": true
+      }
+    },
+    {
+      "scenario_name": "Multi-Currency Transaction Processing",
+      "user_story": "As an accountant, I want to process transactions in different currencies with automatic translation to ledger base currencies",
+      "status": "\u2705 PASS",
+      "message": "Successfully translated 3/3 currency pairs in avg 0.4ms",
+      "business_value": "Multi-currency business operations with real-time exchange rates",
+      "timestamp": "2025-08-06T09:55:43.682093",
+      "details": {
+        "successful_translations": 3,
+        "average_translation_time_ms": 0.43646494547526044,
+        "translation_results": [
+          {
+            "original": "1000.00 USD",
+            "translated": "925.00 EUR",
+            "time_ms": 0.5259513854980469,
+            "success": true
+          },
+          {
+            "original": "5000.00 USD",
+            "translated": "3925.00 GBP",
+            "time_ms": 0.4398822784423828,
+            "success": true
+          },
+          {
+            "original": "10000.00 EUR",
+            "translated": "10870.00 USD",
+            "time_ms": 0.34356117248535156,
+            "success": true
+          }
+        ]
+      }
+    },
+    {
+      "scenario_name": "Audit Trail Completeness",
+      "user_story": "As an auditor, I want to trace journal entry lifecycle",
+      "status": "\u274c FAIL",
+      "message": "No test documents available for audit trail validation",
+      "business_value": null,
+      "timestamp": "2025-08-06T09:55:43.682111",
+      "details": {}
+    },
+    {
+      "scenario_name": "System Health Monitoring",
+      "user_story": "As a system administrator, I want to monitor system health, performance metrics, and operational status",
+      "status": "\u2705 PASS",
+      "message": "System health check: 5 ledgers, 23667 recent docs, 4.0ms response",
+      "business_value": "Proactive system monitoring and performance management",
+      "timestamp": "2025-08-06T09:55:43.686149",
+      "details": {
+        "active_ledgers": 5,
+        "recent_documents_30d": 23667,
+        "system_response_time_ms": 4.028797149658203,
+        "system_healthy": true
+      }
+    },
+    {
+      "scenario_name": "Performance: Database Query Response",
+      "user_story": "As a user, I want the system to respond quickly to my queries (< 50ms)",
+      "status": "\u2705 PASS",
+      "message": "Response time: 0.57ms (threshold: 50ms)",
+      "business_value": "Fast, responsive user experience",
+      "timestamp": "2025-08-06T09:55:43.686796",
+      "details": {
+        "response_time_ms": 0.5693435668945312,
+        "threshold_ms": 50
+      }
+    },
+    {
+      "scenario_name": "Performance: Exchange Rate Lookup",
+      "user_story": "As a user, I want the system to respond quickly to my queries (< 10ms)",
+      "status": "\u2705 PASS",
+      "message": "Response time: 0.32ms (threshold: 10ms)",
+      "business_value": "Fast, responsive user experience",
+      "timestamp": "2025-08-06T09:55:43.687125",
+      "details": {
+        "response_time_ms": 0.3151893615722656,
+        "threshold_ms": 10
+      }
+    },
+    {
+      "scenario_name": "Performance: Account Balance Query",
+      "user_story": "As a user, I want the system to respond quickly to my queries (< 100ms)",
+      "status": "\u2705 PASS",
+      "message": "Response time: 0.37ms (threshold: 100ms)",
+      "business_value": "Fast, responsive user experience",
+      "timestamp": "2025-08-06T09:55:43.687504",
+      "details": {
+        "response_time_ms": 0.36787986755371094,
+        "threshold_ms": 100
+      }
+    }
+  ],
+  "test_documents_created": [],
+  "user_acceptance_criteria": {
+    "multi_ledger_operations": false,
+    "reporting_capabilities": false,
+    "performance_requirements": false,
+    "user_experience": true,
+    "overall_acceptance": false
+  }
+}

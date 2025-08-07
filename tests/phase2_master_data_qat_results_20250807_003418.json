@@ -1,0 +1,190 @@
+{
+  "start_time": "2025-08-07T00:34:18.555525",
+  "test_categories": {
+    "profit_centers": {
+      "table_structure": true,
+      "data_present": true,
+      "views_functional": true
+    },
+    "document_types": {
+      "table_structure": true,
+      "data_present": true,
+      "number_ranges": true
+    },
+    "business_areas": {
+      "table_structure": true,
+      "data_present": true,
+      "derivation_rules": true
+    },
+    "data_integrity": {
+      "referential_integrity": true,
+      "format_constraints": false
+    },
+    "ui_files": {
+      "Profit_Center_Management.py": true,
+      "Document_Type_Management.py": true,
+      "Business_Area_Management.py": true
+    },
+    "python_syntax": {
+      "Profit_Center_Management.py": true,
+      "Document_Type_Management.py": true,
+      "Business_Area_Management.py": true
+    }
+  },
+  "summary": {
+    "end_time": "2025-08-07T00:34:18.588099",
+    "total_duration_seconds": 0.03,
+    "total_tests": 18,
+    "passed_tests": 17,
+    "failed_tests": 1,
+    "warnings": 0,
+    "success_rate": 94.4
+  },
+  "recommendations": [],
+  "detailed_results": [
+    {
+      "test_name": "Database Connectivity",
+      "status": "PASS",
+      "details": "Connection established and basic query executed in 0.010s",
+      "duration_ms": 9.58,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.565134"
+    },
+    {
+      "test_name": "Profit Center Table Structure",
+      "status": "PASS",
+      "details": "All required columns present (26 total columns)",
+      "duration_ms": 4.53,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.569754"
+    },
+    {
+      "test_name": "Profit Center Data",
+      "status": "PASS",
+      "details": "Found 12 profit centers in database",
+      "duration_ms": 0.56,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.570440"
+    },
+    {
+      "test_name": "Profit Center Views",
+      "status": "PASS",
+      "details": "Summary and hierarchy views are functional",
+      "duration_ms": 1.34,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.571884"
+    },
+    {
+      "test_name": "Document Type Table Structure",
+      "status": "PASS",
+      "details": "All required columns present (35 total columns)",
+      "duration_ms": 1.98,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.574021"
+    },
+    {
+      "test_name": "Document Type Data",
+      "status": "PASS",
+      "details": "Found 21 active document types: SA(General Journal Entry), DR(Customer Invoice), DZ(Customer Payment), DG(Customer Credit Memo), KR(Vendor Invoice)",
+      "duration_ms": 0.71,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.574869"
+    },
+    {
+      "test_name": "Document Number Ranges",
+      "status": "PASS",
+      "details": "Found 12 number range configurations",
+      "duration_ms": 0.38,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.575318"
+    },
+    {
+      "test_name": "Business Area Table Structure",
+      "status": "PASS",
+      "details": "All required columns present (25 total columns)",
+      "duration_ms": 1.56,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.576949"
+    },
+    {
+      "test_name": "Business Area Data",
+      "status": "PASS",
+      "details": "Found 10 active business areas: CORP(Corporate), PROD(Products), SERV(Services), TECH(Technology), NA(North America)",
+      "duration_ms": 0.78,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.577845"
+    },
+    {
+      "test_name": "Business Area Derivation Rules",
+      "status": "PASS",
+      "details": "Found 9 active derivation rules",
+      "duration_ms": 0.43,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.578406"
+    },
+    {
+      "test_name": "Data Referential Integrity",
+      "status": "PASS",
+      "details": "All foreign key relationships are valid",
+      "duration_ms": 1.11,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.579584"
+    },
+    {
+      "test_name": "Data Format Constraints",
+      "status": "FAIL",
+      "details": "Failed to check format constraints",
+      "duration_ms": 0.72,
+      "error": "(psycopg2.errors.InvalidRegularExpression) invalid regular expression: invalid character range\n\n[SQL: \n                    SELECT COUNT(*) FROM profit_centers \n                    WHERE profit_center_id ~ '^[A-Za-z0-9-_]+$'\n                ]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)",
+      "timestamp": "2025-08-07T00:34:18.580429"
+    },
+    {
+      "test_name": "UI File: Profit_Center_Management.py",
+      "status": "PASS",
+      "details": "File exists and contains required components (24,298 bytes)",
+      "duration_ms": 0.11,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.580554"
+    },
+    {
+      "test_name": "UI File: Document_Type_Management.py",
+      "status": "PASS",
+      "details": "File exists and contains required components (37,537 bytes)",
+      "duration_ms": 0.09,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.580654"
+    },
+    {
+      "test_name": "UI File: Business_Area_Management.py",
+      "status": "PASS",
+      "details": "File exists and contains required components (37,066 bytes)",
+      "duration_ms": 0.07,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.580736"
+    },
+    {
+      "test_name": "Python Syntax: Profit_Center_Management.py",
+      "status": "PASS",
+      "details": "File compiles without syntax errors",
+      "duration_ms": 2.45,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.583199"
+    },
+    {
+      "test_name": "Python Syntax: Document_Type_Management.py",
+      "status": "PASS",
+      "details": "File compiles without syntax errors",
+      "duration_ms": 2.43,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.585637"
+    },
+    {
+      "test_name": "Python Syntax: Business_Area_Management.py",
+      "status": "PASS",
+      "details": "File compiles without syntax errors",
+      "duration_ms": 2.44,
+      "error": "",
+      "timestamp": "2025-08-07T00:34:18.588088"
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "test_run": "2025-08-07T16:14:34.327549",
+  "test_type": "FSG_VALIDATION_QAT",
+  "tests": [
+    {
+      "test_name": "FSG Hierarchy Resolution - Document Type Priority",
+      "status": "PASS",
+      "details": "Correctly resolved to VENDOR01 for doc type KA",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.345464"
+    },
+    {
+      "test_name": "FSG Hierarchy Resolution - GL Account Priority",
+      "status": "PASS",
+      "details": "Correctly resolved to RECV01 for GL 110000",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.347638"
+    },
+    {
+      "test_name": "FSG Hierarchy Resolution - Account Group Priority",
+      "status": "PASS",
+      "details": "Correctly resolved to EXP01 for expense account",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.349481"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 1",
+      "status": "PASS",
+      "details": "Correctly detected missing required BU for null type: <class 'NoneType'>",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.351049"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 2",
+      "status": "PASS",
+      "details": "Correctly detected missing required BU for null type: <class 'str'>",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.352292"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 3",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: nan",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.353243"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 4",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: None",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.354176"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 5",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: none",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.355160"
+    },
+    {
+      "test_name": "Null Value Handling - Null Type 6",
+      "status": "FAIL",
+      "details": "Failed to detect missing BU for null: NaN",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.356201"
+    },
+    {
+      "test_name": "Null Value Handling",
+      "status": "ERROR",
+      "details": "",
+      "error": "boolean value of NA is ambiguous",
+      "timestamp": "2025-08-07T16:14:34.356949"
+    },
+    {
+      "test_name": "Business Unit Validation - Revenue BU Required",
+      "status": "PASS",
+      "details": "Correctly enforced BU requirement for revenue",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.357905"
+    },
+    {
+      "test_name": "Business Unit Validation - Expense BU Required",
+      "status": "PASS",
+      "details": "Correctly enforced BU requirement for expense",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.358968"
+    },
+    {
+      "test_name": "Business Unit Validation - Cash BU Suppressed",
+      "status": "PASS",
+      "details": "Correctly suppressed BU for cash account",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.360698"
+    },
+    {
+      "test_name": "Field Suppression - Suppressed Fields",
+      "status": "PASS",
+      "details": "Detected 3 suppressed field violations",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.361700"
+    },
+    {
+      "test_name": "Required Fields - Missing Required",
+      "status": "PASS",
+      "details": "Detected 3 missing required fields",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.362406"
+    },
+    {
+      "test_name": "Required Fields - All Required Provided",
+      "status": "PASS",
+      "details": "Validation passed with all required fields",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.363100"
+    },
+    {
+      "test_name": "FSG Effective Determination - Vendor invoice AP",
+      "status": "PASS",
+      "details": "Correctly resolved to VENDOR01",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.363750"
+    },
+    {
+      "test_name": "FSG Effective Determination - Customer invoice AR",
+      "status": "PASS",
+      "details": "Correctly resolved to RECV01",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.364396"
+    },
+    {
+      "test_name": "FSG Effective Determination - General journal revenue",
+      "status": "PASS",
+      "details": "Correctly resolved to REV01",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.365167"
+    },
+    {
+      "test_name": "FSG Effective Determination - General journal expense",
+      "status": "PASS",
+      "details": "Correctly resolved to EXP01",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.365974"
+    },
+    {
+      "test_name": "FSG Effective Determination - Cash journal",
+      "status": "PASS",
+      "details": "Correctly resolved to CASH01",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.366529"
+    },
+    {
+      "test_name": "FSG Effective Determination - General journal inventory",
+      "status": "PASS",
+      "details": "Correctly resolved to ASSET01",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.367898"
+    },
+    {
+      "test_name": "Pandas Integration - Row 1 Null Detection",
+      "status": "PASS",
+      "details": "Correctly detected null BU for GL 400001",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.368328"
+    },
+    {
+      "test_name": "Pandas Integration - Row 3 Value Detection",
+      "status": "PASS",
+      "details": "Correctly detected BU value '1' for GL 100010",
+      "error": null,
+      "timestamp": "2025-08-07T16:14:34.368432"
+    },
+    {
+      "test_name": "Database FSG Configuration",
+      "status": "ERROR",
+      "details": "",
+      "error": "tuple indices must be integers or slices, not str",
+      "timestamp": "2025-08-07T16:14:34.369064"
+    }
+  ],
+  "summary": {
+    "total": 25,
+    "passed": 19,
+    "failed": 4,
+    "errors": 2
+  }
+}

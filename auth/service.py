@@ -11,6 +11,7 @@ from auth.models import (
     LoginRequest, LoginResponse, TokenPayload, AuditLog, AccessType
 )
 from auth.security import security_manager, rate_limiter, password_checker
+from auth.security_monitor import security_monitor
 from utils.logger import get_logger, log_user_action, log_database_operation
 from config import settings
 
@@ -414,6 +415,9 @@ class AuthenticationService:
                 
                 log_user_action(user.id, "login_success", f"Successful login from {ip_address}")
                 
+                # Record successful login for security monitoring
+                security_monitor.record_successful_login(user.username, ip_address, user_agent)
+                
                 return LoginResponse(
                     access_token=access_token,
                     refresh_token=refresh_token,
@@ -457,6 +461,11 @@ class AuthenticationService:
                     })
                     
                     log_user_action(user_id, "account_locked", "Account locked due to failed login attempts")
+                    
+                    # Record account lockout for security monitoring
+                    user = self.user_service.get_user_by_id(user_id)
+                    if user:
+                        security_monitor.record_account_lockout(user.username, ip_address)
                 
         except Exception as e:
             logger.error(f"Error handling failed login: {e}")

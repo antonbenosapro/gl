@@ -1,0 +1,225 @@
+{
+  "uat_summary": {
+    "execution_date": "2025-08-06T19:19:54.152857",
+    "total_tests": 20,
+    "passed_tests": 18,
+    "failed_tests": 2,
+    "success_rate": 90.0
+  },
+  "category_breakdown": {
+    "SETUP": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1
+    },
+    "CURRENCY_MGMT": {
+      "passed": 3,
+      "failed": 1,
+      "total": 4
+    },
+    "RATE_MGMT": {
+      "passed": 4,
+      "failed": 0,
+      "total": 4
+    },
+    "BULK_IMPORT": {
+      "passed": 3,
+      "failed": 0,
+      "total": 3
+    },
+    "ANALYTICS": {
+      "passed": 2,
+      "failed": 1,
+      "total": 3
+    },
+    "ERROR_HANDLING": {
+      "passed": 3,
+      "failed": 0,
+      "total": 3
+    },
+    "PERFORMANCE": {
+      "passed": 2,
+      "failed": 0,
+      "total": 2
+    }
+  },
+  "test_results": [
+    {
+      "timestamp": "2025-08-06T19:19:54.074844",
+      "category": "SETUP",
+      "test_name": "Test Environment Setup",
+      "success": true,
+      "message": "Environment prepared successfully"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.085722",
+      "category": "CURRENCY_MGMT",
+      "test_name": "Add New Currencies",
+      "success": true,
+      "message": "Added 3/3 test currencies"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.088179",
+      "category": "CURRENCY_MGMT",
+      "test_name": "Update Currencies",
+      "success": true,
+      "message": "Currency update successful"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.089199",
+      "category": "CURRENCY_MGMT",
+      "test_name": "Currency Validation",
+      "success": false,
+      "message": "Error: (psycopg2.errors.InFailedSqlTransaction) current transaction is aborted, commands ignored until end of transaction block\n\n[SQL: DELETE FROM currencies WHERE created_by = 'UAT_VALIDATION']\n(Background on this error at: https://sqlalche.me/e/20/2j85)"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.090760",
+      "category": "CURRENCY_MGMT",
+      "test_name": "Base Currency Management",
+      "success": true,
+      "message": "Base currencies found: 2"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.093912",
+      "category": "RATE_MGMT",
+      "test_name": "Add Exchange Rates",
+      "success": true,
+      "message": "Added 4/4 exchange rates"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.096879",
+      "category": "RATE_MGMT",
+      "test_name": "Rate Type Validation",
+      "success": true,
+      "message": "Valid rate types: 5/5"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.097885",
+      "category": "RATE_MGMT",
+      "test_name": "Rate Retrieval",
+      "success": true,
+      "message": "Recent: 4, Current pairs: 4"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.099789",
+      "category": "RATE_MGMT",
+      "test_name": "Rate Updates",
+      "success": true,
+      "message": "Rate updated: 1.234500 -> 1.357950"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.117132",
+      "category": "BULK_IMPORT",
+      "test_name": "CSV Template Generation",
+      "success": true,
+      "message": "Template validation: columns=True, data=True"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.118111",
+      "category": "BULK_IMPORT",
+      "test_name": "Import Data Validation",
+      "success": true,
+      "message": "Validation tests passed: 4/4"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.121778",
+      "category": "BULK_IMPORT",
+      "test_name": "Bulk Data Processing",
+      "success": true,
+      "message": "Bulk processed: 3, Imported: 3"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.122552",
+      "category": "ANALYTICS",
+      "test_name": "Historical Data Retrieval",
+      "success": true,
+      "message": "Rates: 7, Dates: 1, Pairs: 7"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.123333",
+      "category": "ANALYTICS",
+      "test_name": "Trend Analysis",
+      "success": false,
+      "message": "Trends calculated for 0 data points"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.123352",
+      "category": "ANALYTICS",
+      "test_name": "Volatility Analysis",
+      "success": true,
+      "message": "Volatility calculated: 13.4035%"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.123731",
+      "category": "ERROR_HANDLING",
+      "test_name": "Database Error Handling",
+      "success": true,
+      "message": "Database errors handled gracefully"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.123741",
+      "category": "ERROR_HANDLING",
+      "test_name": "Validation Error Handling",
+      "success": true,
+      "message": "Validation errors handled: 3/3"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.124486",
+      "category": "ERROR_HANDLING",
+      "test_name": "Constraint Error Handling",
+      "success": true,
+      "message": "Constraint errors handled: 2"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.151746",
+      "category": "PERFORMANCE",
+      "test_name": "Large Data Handling",
+      "success": true,
+      "message": "Processed 100 records in 0.03s"
+    },
+    {
+      "timestamp": "2025-08-06T19:19:54.152835",
+      "category": "PERFORMANCE",
+      "test_name": "Query Performance",
+      "success": true,
+      "message": "Average query time: 0.001s"
+    }
+  ],
+  "recommendations": [
+    {
+      "category": "SETUP",
+      "priority": "LOW",
+      "recommendation": "SETUP is performing well (100.0%). Ready for production."
+    },
+    {
+      "category": "CURRENCY_MGMT",
+      "priority": "HIGH",
+      "recommendation": "CURRENCY_MGMT has low success rate (75.0%). Review failed tests and fix issues before production deployment."
+    },
+    {
+      "category": "RATE_MGMT",
+      "priority": "LOW",
+      "recommendation": "RATE_MGMT is performing well (100.0%). Ready for production."
+    },
+    {
+      "category": "BULK_IMPORT",
+      "priority": "LOW",
+      "recommendation": "BULK_IMPORT is performing well (100.0%). Ready for production."
+    },
+    {
+      "category": "ANALYTICS",
+      "priority": "HIGH",
+      "recommendation": "ANALYTICS has low success rate (66.7%). Review failed tests and fix issues before production deployment."
+    },
+    {
+      "category": "ERROR_HANDLING",
+      "priority": "LOW",
+      "recommendation": "ERROR_HANDLING is performing well (100.0%). Ready for production."
+    },
+    {
+      "category": "PERFORMANCE",
+      "priority": "LOW",
+      "recommendation": "PERFORMANCE is performing well (100.0%). Ready for production."
+    }
+  ]
+}

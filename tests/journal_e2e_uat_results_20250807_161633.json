@@ -1,0 +1,208 @@
+{
+  "test_run": "2025-08-07T16:16:33.712399",
+  "test_type": "JOURNAL_ENTRY_E2E_UAT",
+  "scenarios": [
+    {
+      "name": "Scenario 1: Basic Journal Creation",
+      "tests": [
+        {
+          "scenario": "Scenario 1: Basic Journal Creation",
+          "test_name": "Create Journal Header",
+          "status": "PASS",
+          "details": "Created header UAT-20250807161633",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.729848"
+        },
+        {
+          "scenario": "Scenario 1: Basic Journal Creation",
+          "test_name": "Add Line 1",
+          "status": "FAIL",
+          "details": "FSG validation failed: ['Line 1: Business Area is required (FSG: REQ)', 'Line 1: Tax Code is required (FSG: REQ)']",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.745478"
+        },
+        {
+          "scenario": "Scenario 1: Basic Journal Creation",
+          "test_name": "Add Line 2",
+          "status": "FAIL",
+          "details": "FSG validation failed: ['Line 2: Business Area is required (FSG: REQ)', 'Line 2: Assignment is required (FSG: REQ)', 'Line 2: Text is required (FSG: REQ)']",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.747678"
+        },
+        {
+          "scenario": "Scenario 1: Basic Journal Creation",
+          "test_name": "Scenario Execution",
+          "status": "ERROR",
+          "details": "",
+          "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'",
+          "timestamp": "2025-08-07T16:16:33.748382"
+        }
+      ],
+      "summary": {
+        "total": 4,
+        "passed": 1,
+        "failed": 2
+      }
+    },
+    {
+      "name": "Scenario 2: Field Suppression",
+      "tests": [
+        {
+          "scenario": "Scenario 2: Field Suppression",
+          "test_name": "Cash BU Suppression",
+          "status": "PASS",
+          "details": "Correctly detected suppressed fields: 2 violations",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.749620"
+        },
+        {
+          "scenario": "Scenario 2: Field Suppression",
+          "test_name": "Revenue BU Required",
+          "status": "PASS",
+          "details": "Correctly detected missing required field",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.750801"
+        },
+        {
+          "scenario": "Scenario 2: Field Suppression",
+          "test_name": "Vendor Invoice Complete",
+          "status": "PASS",
+          "details": "All required fields provided for vendor invoice",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.752358"
+        }
+      ],
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    {
+      "name": "Scenario 3: CSV Upload",
+      "tests": [
+        {
+          "scenario": "Scenario 3: CSV Upload",
+          "test_name": "CSV Parsing",
+          "status": "PASS",
+          "details": "Parsed 2 lines from CSV",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.753987"
+        },
+        {
+          "scenario": "Scenario 3: CSV Upload",
+          "test_name": "Line 1 Validation",
+          "status": "FAIL",
+          "details": "GL 400001: ['Line 1: Tax Code is required (FSG: REQ)']",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.755592"
+        },
+        {
+          "scenario": "Scenario 3: CSV Upload",
+          "test_name": "Line 2 Validation",
+          "status": "PASS",
+          "details": "GL 110000 validated successfully",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.757459"
+        },
+        {
+          "scenario": "Scenario 3: CSV Upload",
+          "test_name": "Document UAT-CSV-001 Balance",
+          "status": "PASS",
+          "details": "Balanced: 1000.0 = 1000.0",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.757608"
+        }
+      ],
+      "summary": {
+        "total": 4,
+        "passed": 3,
+        "failed": 1
+      }
+    },
+    {
+      "name": "Scenario 4: Workflow Integration",
+      "tests": [
+        {
+          "scenario": "Scenario 4: Workflow Integration",
+          "test_name": "Scenario Execution",
+          "status": "ERROR",
+          "details": "",
+          "error": "(psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)\n\n[SQL: \n                    INSERT INTO journalentryheader\n                    (documentnumber, companycodeid, fiscalyear, period,\n                     postingdate, documentdate, reference, currencycode,\n                     workflow_status, createdby, createdat, memo)\n                    VALUES (%(doc_num)s, %(company)s, %(fy)s, %(period)s,\n                            %(posting_date)s, %(doc_date)s, %(reference)s, %(currency)s,\n                            'DRAFT', %(created_by)s, CURRENT_TIMESTAMP, %(memo)s)\n                ]\n[parameters: {'doc_num': 'UAT-WF-20250807161633', 'company': '1000', 'fy': 2025, 'period': 8, 'posting_date': datetime.date(2025, 8, 7), 'doc_date': datetime.date(2025, 8, 7), 'reference': 'WF-TEST', 'currency': 'USD', 'created_by': 'UAT_TESTER', 'memo': 'Workflow Test'}]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)",
+          "timestamp": "2025-08-07T16:16:33.758198"
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    {
+      "name": "Scenario 5: Error Handling",
+      "tests": [
+        {
+          "scenario": "Scenario 5: Error Handling",
+          "test_name": "Invalid GL Account",
+          "status": "PASS",
+          "details": "Validation result for non-existent GL: Valid=True",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.759952"
+        },
+        {
+          "scenario": "Scenario 5: Error Handling",
+          "test_name": "Unbalanced Entry Detection",
+          "status": "PASS",
+          "details": "Correctly detected: Total debits (1000.00) must equal total credits (500.00)",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.759995"
+        },
+        {
+          "scenario": "Scenario 5: Error Handling",
+          "test_name": "Null Value Handling",
+          "status": "PASS",
+          "details": "Correctly handled 2 null value types",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.762654"
+        }
+      ],
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    {
+      "name": "Scenario 6: Performance Testing",
+      "tests": [
+        {
+          "scenario": "Scenario 6: Performance Testing",
+          "test_name": "Validation Performance",
+          "status": "PASS",
+          "details": "Avg 0.89ms per validation (100 validations in 0.09s)",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.851743"
+        },
+        {
+          "scenario": "Scenario 6: Performance Testing",
+          "test_name": "Database Performance",
+          "status": "PASS",
+          "details": "Database queries completed in 0.001s",
+          "error": null,
+          "timestamp": "2025-08-07T16:16:33.852527"
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    }
+  ],
+  "summary": {
+    "total": 17,
+    "passed": 12,
+    "failed": 3,
+    "errors": 2
+  }
+}

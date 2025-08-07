@@ -1,0 +1,277 @@
+{
+  "uat_start_time": "2025-08-06 15:14:11.306904",
+  "test_fiscal_year": 2025,
+  "test_fiscal_period": 2,
+  "test_posting_date": "2025-02-15",
+  "test_document_date": "2025-02-15",
+  "draft_documents": [
+    {
+      "document_number": "FEB2025UAT001",
+      "doc_type": "Sales Invoice - February",
+      "line_count": 3,
+      "total_debits": "7500.0",
+      "total_credits": "7500.0"
+    },
+    {
+      "document_number": "FEB2025UAT002",
+      "doc_type": "February Rent Accrual",
+      "line_count": 2,
+      "total_debits": "3500.0",
+      "total_credits": "3500.0"
+    },
+    {
+      "document_number": "FEB2025UAT003",
+      "doc_type": "Marketing Campaign",
+      "line_count": 3,
+      "total_debits": "4300.0",
+      "total_credits": "4300.0"
+    },
+    {
+      "document_number": "FEB2025UAT004",
+      "doc_type": "February Payroll",
+      "line_count": 4,
+      "total_debits": "20700.0",
+      "total_credits": "20700.0"
+    },
+    {
+      "document_number": "FEB2025UAT005",
+      "doc_type": "IFRS Equipment Revaluation",
+      "line_count": 2,
+      "total_debits": "5000.0",
+      "total_credits": "5000.0"
+    },
+    {
+      "document_number": "FEB2025UAT006",
+      "doc_type": "Currency Translation",
+      "line_count": 3,
+      "total_debits": "1200.0",
+      "total_credits": "1200.0"
+    }
+  ],
+  "approved_documents": [
+    {
+      "document_number": "FEB2025UAT001",
+      "doc_type": "Sales Invoice - February",
+      "line_count": 3,
+      "total_debits": "7500.0",
+      "total_credits": "7500.0"
+    },
+    {
+      "document_number": "FEB2025UAT002",
+      "doc_type": "February Rent Accrual",
+      "line_count": 2,
+      "total_debits": "3500.0",
+      "total_credits": "3500.0"
+    },
+    {
+      "document_number": "FEB2025UAT003",
+      "doc_type": "Marketing Campaign",
+      "line_count": 3,
+      "total_debits": "4300.0",
+      "total_credits": "4300.0"
+    },
+    {
+      "document_number": "FEB2025UAT004",
+      "doc_type": "February Payroll",
+      "line_count": 4,
+      "total_debits": "20700.0",
+      "total_credits": "20700.0"
+    },
+    {
+      "document_number": "FEB2025UAT005",
+      "doc_type": "IFRS Equipment Revaluation",
+      "line_count": 2,
+      "total_debits": "5000.0",
+      "total_credits": "5000.0"
+    },
+    {
+      "document_number": "FEB2025UAT006",
+      "doc_type": "Currency Translation",
+      "line_count": 3,
+      "total_debits": "1200.0",
+      "total_credits": "1200.0"
+    }
+  ],
+  "posted_documents": [
+    {
+      "document_number": "FEB2025UAT001",
+      "doc_type": "Sales Invoice - February",
+      "line_count": 3,
+      "total_debits": "7500.0",
+      "total_credits": "7500.0"
+    },
+    {
+      "document_number": "FEB2025UAT002",
+      "doc_type": "February Rent Accrual",
+      "line_count": 2,
+      "total_debits": "3500.0",
+      "total_credits": "3500.0"
+    },
+    {
+      "document_number": "FEB2025UAT003",
+      "doc_type": "Marketing Campaign",
+      "line_count": 3,
+      "total_debits": "4300.0",
+      "total_credits": "4300.0"
+    },
+    {
+      "document_number": "FEB2025UAT004",
+      "doc_type": "February Payroll",
+      "line_count": 4,
+      "total_debits": "20700.0",
+      "total_credits": "20700.0"
+    },
+    {
+      "document_number": "FEB2025UAT005",
+      "doc_type": "IFRS Equipment Revaluation",
+      "line_count": 2,
+      "total_debits": "5000.0",
+      "total_credits": "5000.0"
+    },
+    {
+      "document_number": "FEB2025UAT006",
+      "doc_type": "Currency Translation",
+      "line_count": 3,
+      "total_debits": "1200.0",
+      "total_credits": "1200.0"
+    }
+  ],
+  "parallel_documents": [
+    {
+      "document_number": "FEB2025UAT001",
+      "source_ledger": "L1",
+      "successful_ledgers": 4,
+      "failed_ledgers": 0,
+      "total_ledgers": 4,
+      "errors": []
+    },
+    {
+      "document_number": "FEB2025UAT002",
+      "source_ledger": "L1",
+      "successful_ledgers": 4,
+      "failed_ledgers": 0,
+      "total_ledgers": 4,
+      "errors": []
+    },
+    {
+      "document_number": "FEB2025UAT003",
+      "source_ledger": "L1",
+      "successful_ledgers": 4,
+      "failed_ledgers": 0,
+      "total_ledgers": 4,
+      "errors": []
+    },
+    {
+      "document_number": "FEB2025UAT004",
+      "source_ledger": "L1",
+      "successful_ledgers": 4,
+      "failed_ledgers": 0,
+      "total_ledgers": 4,
+      "errors": []
+    },
+    {
+      "document_number": "FEB2025UAT005",
+      "source_ledger": "L1",
+      "successful_ledgers": 0,
+      "failed_ledgers": 4,
+      "total_ledgers": 4,
+      "errors": []
+    },
+    {
+      "document_number": "FEB2025UAT006",
+      "source_ledger": "L1",
+      "successful_ledgers": 4,
+      "failed_ledgers": 0,
+      "total_ledgers": 4,
+      "errors": []
+    }
+  ],
+  "test_phases": {
+    "Draft Journal Creation": {
+      "success": true,
+      "message": "Created 6 draft documents with 17 lines for February 2025",
+      "timestamp": "2025-08-06 15:14:11.638019",
+      "details": {
+        "documents_created": 6,
+        "total_lines": 17,
+        "total_debits": "$42,200.00",
+        "total_credits": "$42,200.00",
+        "balance_check": "\u2705 Balanced"
+      }
+    },
+    "Workflow Approval": {
+      "success": true,
+      "message": "Approved 6 of 6 February documents (100.0%)",
+      "timestamp": "2025-08-06 15:14:11.749438",
+      "details": {
+        "documents_approved": 6,
+        "approval_success_rate": "100.0%",
+        "ready_for_posting": 6
+      }
+    },
+    "Bulk Posting": {
+      "success": true,
+      "message": "Successfully posted 6 documents to February 2025",
+      "timestamp": "2025-08-06 15:14:11.751046",
+      "details": {
+        "documents_posted": 6,
+        "posting_date": "2025-02-15",
+        "fiscal_period": "February 2025",
+        "total_transactions": 17
+      }
+    },
+    "Parallel Ledger Processing": {
+      "success": false,
+      "message": "February 2025: Processed 6 documents, created 20 parallel entries",
+      "timestamp": "2025-08-06 15:14:11.904012",
+      "details": {
+        "source_documents": 6,
+        "parallel_documents_created": 20,
+        "successful_ledger_postings": 20,
+        "failed_ledger_postings": 4,
+        "parallel_success_rate": "83.3%"
+      }
+    },
+    "Balance Verification": {
+      "success": true,
+      "message": "February 2025: Verified balances across 2 ledgers - All Balanced",
+      "timestamp": "2025-08-06 15:14:11.905004",
+      "details": {
+        "ledgers_verified": 2,
+        "total_documents": 6,
+        "total_lines": 17,
+        "balance_status": "\u2705 All Balanced",
+        "fiscal_period": "February 2025"
+      }
+    }
+  },
+  "final_balances": {
+    "2L": {
+      "ledger_name": "IFRS Reporting Ledger",
+      "accounting_principle": "IFRS",
+      "documents": 1,
+      "lines": 2,
+      "debits": 5000.0,
+      "credits": 5000.0,
+      "net_balance": 0.0,
+      "is_balanced": true
+    },
+    "L1": {
+      "ledger_name": "Leading Ledger",
+      "accounting_principle": "US_GAAP",
+      "documents": 5,
+      "lines": 15,
+      "debits": 37200.0,
+      "credits": 37200.0,
+      "net_balance": 0.0,
+      "is_balanced": true
+    }
+  },
+  "errors": [
+    "Parallel Ledger Processing: February 2025: Processed 6 documents, created 20 parallel entries"
+  ],
+  "warnings": [],
+  "uat_end_time": "2025-08-06 15:14:11.905157",
+  "uat_status": "CONDITIONAL_ACCEPTANCE",
+  "success_rate": 80.0
+}

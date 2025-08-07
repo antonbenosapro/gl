@@ -1,0 +1,164 @@
+{
+  "test_session": {
+    "start_time": "2025-08-07T18:38:56.721187",
+    "end_time": "2025-08-07T18:38:57.072059",
+    "total_duration_seconds": 0.351,
+    "framework_version": "1.0.0"
+  },
+  "test_results_summary": {
+    "total_tests": 10,
+    "passed": 7,
+    "failed": 1,
+    "warnings": 2,
+    "skipped": 0,
+    "success_rate_percent": 70.0
+  },
+  "detailed_results": [
+    {
+      "test_name": "Database Connectivity",
+      "status": "PASS",
+      "details": "Database connection and core table access validated",
+      "execution_time_seconds": 0.016,
+      "timestamp": "2025-08-07T18:38:56.737364",
+      "error": ""
+    },
+    {
+      "test_name": "Journal Entry Data Loading",
+      "status": "FAIL",
+      "details": "Failed to load journal entry data",
+      "execution_time_seconds": 0.001,
+      "timestamp": "2025-08-07T18:38:56.738759",
+      "error": "(psycopg2.errors.UndefinedColumn) column ga.companycodeid does not exist\nLINE 7: ...ccountid = ga.glaccountid AND jel.companycodeid = ga.company...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"jel.companycodeid\".\n\n[SQL: \n                        SELECT jel.linenumber, jel.glaccountid, jel.debitamount, jel.creditamount,\n                               jel.text, jel.reference, jel.assignment, jel.business_unit_id,\n                               jel.tax_code, jel.business_area, jel.currencycode, jel.ledgerid,\n                               COALESCE(ga.accountname, 'Unknown Account') as accountname\n                        FROM journalentryline jel\n                        LEFT JOIN glaccount ga ON jel.glaccountid = ga.glaccountid AND jel.companycodeid = ga.companycodeid\n                        WHERE jel.documentnumber = %(doc)s AND jel.companycodeid = %(cc)s\n                        ORDER BY jel.linenumber\n                    ]\n[parameters: {'doc': 'JE202501001', 'cc': '1000'}]\n(Background on this error at: https://sqlalche.me/e/20/f405)"
+    },
+    {
+      "test_name": "DataFrame Processing",
+      "status": "PASS",
+      "details": "New DF cols: 13, Existing DF shape: (1, 13)",
+      "execution_time_seconds": 0.004,
+      "timestamp": "2025-08-07T18:38:56.743041",
+      "error": ""
+    },
+    {
+      "test_name": "Column Configuration",
+      "status": "PASS",
+      "details": "All 13/13 columns configured successfully",
+      "execution_time_seconds": 0.0,
+      "timestamp": "2025-08-07T18:38:56.743071",
+      "error": ""
+    },
+    {
+      "test_name": "Error Handling Fallbacks",
+      "status": "PASS",
+      "details": "Tested 4 fallback scenarios successfully",
+      "execution_time_seconds": 0.0,
+      "timestamp": "2025-08-07T18:38:56.743431",
+      "error": ""
+    },
+    {
+      "test_name": "Business Units Table Integration",
+      "status": "WARNING",
+      "details": "Business units table not accessible - fallback should handle this: (psycopg2.errors.UndefinedColumn) column \"business_unit_id\" does not exist\nLINE 2:                         SELECT business_unit_id, business_un...\n                                       ^\n\n[SQL: \n                        SELECT business_unit_id, business_unit_name \n                        FROM business_units \n                        LIMIT 5\n                    ]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "execution_time_seconds": 0.001,
+      "timestamp": "2025-08-07T18:38:56.744807",
+      "error": ""
+    },
+    {
+      "test_name": "Function Definition Placement",
+      "status": "WARNING",
+      "details": "6 function definitions still in execution flow",
+      "execution_time_seconds": 0.002,
+      "timestamp": "2025-08-07T18:38:56.746524",
+      "error": "[{'line_number': 752, 'function_name': 'def handle_edit_entry(current_user):', 'context': 'main_execution_flow'}, {'line_number': 1358, 'function_name': 'def clean_field_value(value):', 'context': 'main_execution_flow'}, {'line_number': 1531, 'function_name': 'def save_journal_entry(doc, cc, pdate, ddate, fy, per, ref, memo, cur, cb, edited, workflow_status=\"DRAFT\", doc_type=\"SA\"):', 'context': 'main_execution_flow'}, {'line_number': 1627, 'function_name': 'def handle_reverse_entry():', 'context': 'main_execution_flow'}, {'line_number': 1929, 'function_name': 'def handle_delete_entry():', 'context': 'main_execution_flow'}, {'line_number': 2088, 'function_name': 'def main():', 'context': 'main_execution_flow'}]"
+    },
+    {
+      "test_name": "Debug Message Flow",
+      "status": "PASS",
+      "details": "Debug flow coverage: 100.0% (14/14)",
+      "execution_time_seconds": 0.001,
+      "timestamp": "2025-08-07T18:38:56.747195",
+      "error": ""
+    },
+    {
+      "test_name": "Performance Metrics",
+      "status": "PASS",
+      "details": "All performance tests within thresholds: {'database_query_time': 0.004365205764770508, 'dataframe_processing_time': 0.011321067810058594, 'column_config_time': 4.76837158203125e-06}",
+      "execution_time_seconds": 0.016,
+      "timestamp": "2025-08-07T18:38:56.762926",
+      "error": ""
+    },
+    {
+      "test_name": "Regression Scenarios",
+      "status": "PASS",
+      "details": "All 5 regression tests passed",
+      "execution_time_seconds": 0.309,
+      "timestamp": "2025-08-07T18:38:57.072040",
+      "error": ""
+    }
+  ],
+  "performance_metrics": {
+    "database_query_time": 0.004365205764770508,
+    "dataframe_processing_time": 0.011321067810058594,
+    "column_config_time": 4.76837158203125e-06
+  },
+  "test_data_collected": {
+    "dataframe_processing": {
+      "new_entry_columns": 13,
+      "existing_entry_shape": [
+        1,
+        13
+      ],
+      "ledger_default_applied": "True"
+    },
+    "column_configuration": {
+      "expected_columns": 13,
+      "configured_columns": 13,
+      "configuration_steps": 13,
+      "all_configured": true
+    },
+    "error_handling": {
+      "fallback_scenarios_tested": 4,
+      "scenarios": [
+        "Enhanced -> Basic data_editor fallback",
+        "Basic data_editor creation successful",
+        "Database -> Empty DataFrame fallback",
+        "FSG -> Basic column config fallback"
+      ]
+    },
+    "business_units": {
+      "table_accessible": false,
+      "error": "(psycopg2.errors.UndefinedColumn) column \"business_unit_id\" does not exist\nLINE 2:                         SELECT business_unit_id, business_un...\n                                       ^\n\n[SQL: \n                        SELECT business_unit_id, business_unit_name \n                        FROM business_units \n                        LIMIT 5\n                    ]\n(Background on this error at: https://sqlalche.me/e/20/f405)"
+    },
+    "function_placement": {
+      "functions_in_execution_flow": 6,
+      "debug_messages_present": 4,
+      "expected_debug_messages": 4
+    },
+    "debug_flow": {
+      "total_debug_messages": 20,
+      "expected_messages": 14,
+      "messages_found": 14,
+      "flow_coverage": 100.0
+    },
+    "performance": {
+      "database_query_time": 0.004365205764770508,
+      "dataframe_processing_time": 0.011321067810058594,
+      "column_config_time": 4.76837158203125e-06
+    },
+    "regression": {
+      "tests_performed": 5,
+      "results": [
+        "Document number generation: JE01591...",
+        "Document types loading: 3 types",
+        "GL Account access: 3 accounts",
+        "FSG validation framework: accessible",
+        "Workflow engine: accessible"
+      ]
+    }
+  },
+  "recommendations": [
+    "\ud83d\udd34 CRITICAL: 1 tests failed. Review these issues before production deployment.",
+    "\ud83d\udfe1 WARNING: 2 tests have warnings. Monitor these areas closely in production.",
+    "\ud83d\udd27 CODE STRUCTURE: Move remaining function definitions out of execution flow.",
+    "\ud83d\uddc4\ufe0f DATABASE: Verify business_units table setup and error handling."
+  ]
+}

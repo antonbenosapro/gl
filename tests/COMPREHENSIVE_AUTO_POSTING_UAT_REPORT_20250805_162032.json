@@ -1,0 +1,208 @@
+{
+  "uat_summary": {
+    "start_time": "2025-08-05T16:20:32.060928",
+    "end_time": "2025-08-05T16:20:32.083775",
+    "total_duration": 0.022847,
+    "total_tests": 12,
+    "passed_tests": 4,
+    "failed_tests": 8,
+    "success_rate": 33.33333333333333,
+    "overall_status": "FAILED"
+  },
+  "test_results": [
+    {
+      "test_name": "Environment Setup",
+      "status": "PASSED",
+      "duration": 0.011775016784667969,
+      "timestamp": "2025-08-05 16:20:32.072750",
+      "details": {
+        "validation_checks": [
+          [
+            "Database Connectivity",
+            true
+          ],
+          [
+            "journalentryheader.auto_posted",
+            true
+          ],
+          [
+            "posting_documents table",
+            true
+          ],
+          [
+            "gl_transactions table",
+            true
+          ],
+          [
+            "posting_audit_trail table",
+            true
+          ],
+          [
+            "AUTO_POSTER system user",
+            true
+          ]
+        ],
+        "db_response_time": 0.00029206275939941406,
+        "auto_poster_active": true
+      }
+    },
+    {
+      "test_name": "Single Document Auto-Posting",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.073733",
+      "details": "(psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)\n\n[SQL: \n                    INSERT INTO journalentryheader (\n                        documentnumber, companycodeid, postingdate, fiscalyear, period,\n                        reference, currencycode, createdby, workflow_status\n                    ) VALUES (\n                        %(doc)s, 'TEST', CURRENT_DATE, %(year)s, %(period)s,\n                        'UAT Single Document Test', 'USD', 'uat_user', 'DRAFT'\n                    )\n                ]\n[parameters: {'doc': 'UAT-SINGLE-20250805162032', 'year': 2025, 'period': 8}]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    },
+    {
+      "test_name": "Multiple Document Processing",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.074361",
+      "details": "(psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)\n\n[SQL: \n                        INSERT INTO journalentryheader (\n                            documentnumber, companycodeid, postingdate, fiscalyear, period,\n                            reference, currencycode, createdby, workflow_status\n                        ) VALUES (\n                            %(doc)s, 'TEST', CURRENT_DATE, %(year)s, %(period)s,\n                            %(ref)s, 'USD', 'batch_user', 'DRAFT'\n                        )\n                    ]\n[parameters: {'doc': 'UAT-MULTI-20250805162032-01', 'year': 2025, 'period': 8, 'ref': 'UAT Multi Document 1'}]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    },
+    {
+      "test_name": "Error Recovery Testing",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.074798",
+      "details": "(psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)\n\n[SQL: \n                    INSERT INTO journalentryheader (\n                        documentnumber, companycodeid, postingdate, fiscalyear, period,\n                        reference, currencycode, createdby, workflow_status\n                    ) VALUES (\n                        %(doc)s, 'TEST', CURRENT_DATE, %(year)s, 1,\n                        'Error Test - Future Period', 'USD', 'error_user', 'APPROVED'\n                    )\n                ]\n[parameters: {'doc': 'UAT-ERROR-PERIOD-20250805162032', 'year': 2026}]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    },
+    {
+      "test_name": "Segregation of Duties",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.075342",
+      "details": "(psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)\n\n[SQL: \n                    INSERT INTO journalentryheader (\n                        documentnumber, companycodeid, postingdate, fiscalyear, period,\n                        reference, currencycode, createdby, workflow_status\n                    ) VALUES (\n                        %(doc)s, 'TEST', CURRENT_DATE, %(year)s, %(period)s,\n                        'SOD Test Document', 'USD', 'creator_user', 'DRAFT'\n                    )\n                ]\n[parameters: {'doc': 'UAT-SOD-20250805162032', 'year': 2025, 'period': 8}]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    },
+    {
+      "test_name": "Period Controls Validation",
+      "status": "PASSED",
+      "duration": 0.0008800029754638672,
+      "timestamp": "2025-08-05 16:20:32.076241",
+      "details": {
+        "current_period": {
+          "status": "OPEN",
+          "allow_posting": true,
+          "period": 8,
+          "year": 2025
+        },
+        "period_configuration": {
+          "total_periods": 1,
+          "open_periods": 1
+        }
+      }
+    },
+    {
+      "test_name": "Balance Accuracy Verification",
+      "status": "PASSED",
+      "duration": 0.0016770362854003906,
+      "timestamp": "2025-08-05 16:20:32.077926",
+      "details": {
+        "account_balances": {
+          "100001": {
+            "beginning_balance": 0.0,
+            "period_debits": 1850.0,
+            "period_credits": 0.0,
+            "ending_balance": 1850.0,
+            "ytd_debits": 1850.0,
+            "ytd_credits": 0.0,
+            "ytd_balance": 1850.0,
+            "last_posting_date": "2025-08-05",
+            "transaction_count": 6
+          },
+          "400001": {
+            "beginning_balance": 0.0,
+            "period_debits": 0.0,
+            "period_credits": 0.0,
+            "ending_balance": 0.0,
+            "ytd_debits": 0.0,
+            "ytd_credits": 0.0,
+            "ytd_balance": 0.0,
+            "last_posting_date": null,
+            "transaction_count": 0
+          },
+          "300001": {
+            "beginning_balance": 0.0,
+            "period_debits": 0.0,
+            "period_credits": 1850.0,
+            "ending_balance": -1850.0,
+            "ytd_debits": 0.0,
+            "ytd_credits": 1850.0,
+            "ytd_balance": -1850.0,
+            "last_posting_date": "2025-08-05",
+            "transaction_count": 6
+          }
+        },
+        "balance_equation": {
+          "total_debits": 1850.0,
+          "total_credits": 1850.0,
+          "difference": 0.0,
+          "balanced": true
+        }
+      }
+    },
+    {
+      "test_name": "Audit Trail Completeness",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.078682",
+      "details": "unsupported format string passed to NoneType.__format__"
+    },
+    {
+      "test_name": "Performance Testing",
+      "status": "PASSED",
+      "duration": 0.003278970718383789,
+      "timestamp": "2025-08-05 16:20:32.081970",
+      "details": {
+        "statistics_performance": {
+          "query_time": 0.0021092891693115234,
+          "stats": {
+            "period_days": 1,
+            "company_code": "TEST",
+            "auto_posted_count": 3,
+            "auto_posted_amount": 2500.0,
+            "pending_auto_post": 1,
+            "success_rate": 75.0
+          }
+        },
+        "eligible_query_performance": {
+          "query_time": 0.001157522201538086,
+          "document_count": 2
+        },
+        "performance_benchmarks": {
+          "statistics_query": true,
+          "eligible_query": true,
+          "average_approval_time": true
+        }
+      }
+    },
+    {
+      "test_name": "Business Rule Validation",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.082375",
+      "details": "(psycopg2.errors.UndefinedColumn) column \"company_code\" does not exist\nLINE 4:                 WHERE company_code = 'TEST'\n                              ^\nHINT:  Perhaps you meant to reference the column \"journalentryheader.companycodeid\".\n\n[SQL: \n                SELECT COUNT(*)\n                FROM journalentryheader\n                WHERE company_code = 'TEST'\n                AND workflow_status != 'APPROVED'\n                AND posted_at IS NOT NULL\n                AND auto_posted = true\n            ]\n(Background on this error at: https://sqlalche.me/e/20/f405)"
+    },
+    {
+      "test_name": "User Experience Simulation",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.082879",
+      "details": "(psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)\n\n[SQL: \n                    INSERT INTO journalentryheader (\n                        documentnumber, companycodeid, postingdate, fiscalyear, period,\n                        reference, currencycode, createdby, workflow_status\n                    ) VALUES (\n                        %(doc)s, 'TEST', CURRENT_DATE, %(year)s, %(period)s,\n                        'User Experience Test', 'USD', 'typical_user', 'DRAFT'\n                    )\n                ]\n[parameters: {'doc': 'UAT-UX-20250805162032', 'year': 2025, 'period': 8}]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    },
+    {
+      "test_name": "System Integration",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:20:32.083767",
+      "details": "(psycopg2.errors.UndefinedColumn) column \"company_code\" does not exist\nLINE 4:                      WHERE company_code = 'TEST' AND auto_po...\n                                   ^\nHINT:  Perhaps you meant to reference the column \"journalentryheader.companycodeid\".\n\n[SQL: \n                SELECT \n                    (SELECT COUNT(*) FROM journalentryheader \n                     WHERE company_code = 'TEST' AND auto_posted = true) as auto_posted_docs,\n                    (SELECT COUNT(DISTINCT document_number) FROM gl_transactions \n                     WHERE company_code = 'TEST' AND posted_by = 'AUTO_POSTER') as gl_docs\n            ]\n(Background on this error at: https://sqlalche.me/e/20/f405)"
+    }
+  ],
+  "test_documents": [],
+  "business_validation": {
+    "automatic_posting": false,
+    "user_experience": false,
+    "system_integration": true,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "test_summary": {
+    "start_time": "2025-08-06T09:46:29.700327",
+    "end_time": "2025-08-06T09:46:29.733378",
+    "duration_seconds": 0.033051,
+    "tests_run": 40,
+    "tests_passed": 32,
+    "tests_failed": 8,
+    "success_rate_percentage": 80.0
+  },
+  "system_status": {
+    "ledgers": {
+      "total": 5,
+      "leading": 1,
+      "parallel": 4,
+      "configured_parallel": [
+        "2L",
+        "3L",
+        "4L",
+        "CL"
+      ]
+    }
+  },
+  "performance_metrics": {
+    "database_query_time_ms": 0.5762577056884766,
+    "service_init_time_ms": 0.002384185791015625
+  },
+  "test_details": [
+    {
+      "test_name": "Database Connection",
+      "status": "\u2705 PASS",
+      "message": "Database accessible",
+      "timestamp": "2025-08-06T09:46:29.709732",
+      "details": {}
+    },
+    {
+      "test_name": "Table: ledger",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:46:29.711142",
+      "details": {}
+    },
+    {
+      "test_name": "Table: journalentryheader",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:46:29.711574",
+      "details": {}
+    },
+    {
+      "test_name": "Table: journalentryline",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:46:29.712020",
+      "details": {}
+    },
+    {
+      "test_name": "Table: exchangerate",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:46:29.712431",
+      "details": {}
+    },
+    {
+      "test_name": "Table: gl_account_balances",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:46:29.712896",
+      "details": {}
+    },
+    {
+      "test_name": "Table: ledger_derivation_rules",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:46:29.713317",
+      "details": {}
+    },
+    {
+      "test_name": "View: v_current_exchange_rates",
+      "status": "\u2705 PASS",
+      "message": "View exists",
+      "timestamp": "2025-08-06T09:46:29.714098",
+      "details": {}
+    },
+    {
+      "test_name": "View: v_derivation_rules_summary",
+      "status": "\u2705 PASS",
+      "message": "View exists",
+      "timestamp": "2025-08-06T09:46:29.714418",
+      "details": {}
+    },
+    {
+      "test_name": "ParallelPostingService.process_approved_document_to_all_ledgers",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:46:29.714516",
+      "details": {}
+    },
+    {
+      "test_name": "EnhancedAutoPostingService.process_document_with_parallel_posting",
+      "status": "\u274c FAIL",
+      "message": "Method missing",
+      "timestamp": "2025-08-06T09:46:29.714521",
+      "details": {}
+    },
+    {
+      "test_name": "EnhancedWorkflowIntegration.approve_document_with_parallel_posting",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:46:29.714524",
+      "details": {}
+    },
+    {
+      "test_name": "CurrencyTranslationService.translate_amount",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:46:29.714526",
+      "details": {}
+    },
+    {
+      "test_name": "ParallelLedgerReportingService.generate_trial_balance_by_ledger",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:46:29.714528",
+      "details": {}
+    },
+    {
+      "test_name": "Ledger Table Read",
+      "status": "\u2705 PASS",
+      "message": "Found 5 ledgers",
+      "timestamp": "2025-08-06T09:46:29.714933",
+      "details": {
+        "ledger_count": 5
+      }
+    },
+    {
+      "test_name": "Exchange Rates Data",
+      "status": "\u2705 PASS",
+      "message": "Found 25 exchange rate records",
+      "timestamp": "2025-08-06T09:46:29.715171",
+      "details": {
+        "rate_count": 25
+      }
+    },
+    {
+      "test_name": "Derivation Rules",
+      "status": "\u2705 PASS",
+      "message": "Found 34 derivation rules",
+      "timestamp": "2025-08-06T09:46:29.715479",
+      "details": {
+        "rule_count": 34
+      }
+    },
+    {
+      "test_name": "Leading Ledger Count",
+      "status": "\u2705 PASS",
+      "message": "Expected 1 leading ledger, found 1",
+      "timestamp": "2025-08-06T09:46:29.716230",
+      "details": {
+        "leading_ledger": "L1"
+      }
+    },
+    {
+      "test_name": "Parallel Ledger: 2L",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:46:29.716241",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Ledger: 3L",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:46:29.716244",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Ledger: 4L",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:46:29.716247",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Ledger: CL",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:46:29.716249",
+      "details": {}
+    },
+    {
+      "test_name": "USD to EUR Translation",
+      "status": "\u2705 PASS",
+      "message": "$1000.00 USD = \u20ac925.00 EUR",
+      "timestamp": "2025-08-06T09:46:29.717208",
+      "details": {}
+    },
+    {
+      "test_name": "USD to GBP Translation",
+      "status": "\u2705 PASS",
+      "message": "$1000.00 USD = \u00a3785.00 GBP",
+      "timestamp": "2025-08-06T09:46:29.717685",
+      "details": {}
+    },
+    {
+      "test_name": "Same Currency Translation",
+      "status": "\u2705 PASS",
+      "message": "USD to USD translation: $1000.00",
+      "timestamp": "2025-08-06T09:46:29.717691",
+      "details": {}
+    },
+    {
+      "test_name": "Test Document Creation",
+      "status": "\u2705 PASS",
+      "message": "Created document TEST20250806094629 with 2 lines",
+      "timestamp": "2025-08-06T09:46:29.721566",
+      "details": {
+        "document_number": "TEST20250806094629",
+        "lines": 2
+      }
+    },
+    {
+      "test_name": "Workflow Integration",
+      "status": "\u274c FAIL",
+      "message": "Workflow integration test failed: 'EnhancedWorkflowIntegration' object has no attribute 'get_approval_impact_summary'",
+      "timestamp": "2025-08-06T09:46:29.721708",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Posting Engine",
+      "status": "\u274c FAIL",
+      "message": "Parallel posting test failed: ParallelPostingService.process_approved_document_to_all_ledgers() got an unexpected keyword argument 'posted_by'",
+      "timestamp": "2025-08-06T09:46:29.721717",
+      "details": {}
+    },
+    {
+      "test_name": "Currency Translation",
+      "status": "\u274c FAIL",
+      "message": "Currency translation test failed: (psycopg2.errors.UndefinedColumn) column jeh.ledger_id does not exist\nLINE 6:                     JOIN ledger l ON jeh.ledger_id = l.ledge...\n                                             ^\n\n[SQL: \n                    SELECT jeh.documentnumber, jeh.ledger_id, l.currencycode,\n                           SUM(jel.debitamount) as total_debits,\n                           SUM(jel.creditamount) as total_credits\n                    FROM journalentryheader jeh\n                    JOIN ledger l ON jeh.ledger_id = l.ledgerid\n                    LEFT JOIN journalentryline jel ON jel.documentnumber = jeh.documentnumber \n                        AND jel.companycodeid = jeh.companycodeid\n                    WHERE jeh.parallel_source_doc = %(source_doc)s \n                    AND jeh.companycodeid = %(company_code)s\n                    GROUP BY jeh.documentnumber, jeh.ledger_id, l.currencycode\n                ]\n[parameters: {'source_doc': 'TEST20250806094629', 'company_code': '1000'}]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:46:29.722376",
+      "details": {}
+    },
+    {
+      "test_name": "Source Document Balance",
+      "status": "\u2705 PASS",
+      "message": "Debits: $5000.00, Credits: $5000.00",
+      "timestamp": "2025-08-06T09:46:29.722806",
+      "details": {}
+    },
+    {
+      "test_name": "Balance Validation",
+      "status": "\u274c FAIL",
+      "message": "Balance validation test failed: (psycopg2.errors.UndefinedColumn) column jeh.ledger_id does not exist\nLINE 4:                         jeh.ledger_id,\n                                ^\nHINT:  Perhaps you meant to reference the column \"jel.ledgerid\".\n\n[SQL: \n                    SELECT \n                        jeh.documentnumber,\n                        jeh.ledger_id,\n                        SUM(jel.debitamount) as total_debits,\n                        SUM(jel.creditamount) as total_credits\n                    FROM journalentryheader jeh\n                    LEFT JOIN journalentryline jel ON jel.documentnumber = jeh.documentnumber \n                        AND jel.companycodeid = jeh.companycodeid\n                    WHERE jeh.parallel_source_doc = %(source_doc)s \n                    AND jeh.companycodeid = %(company_code)s\n                    GROUP BY jeh.documentnumber, jeh.ledger_id\n                ]\n[parameters: {'source_doc': 'TEST20250806094629', 'company_code': '1000'}]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:46:29.723154",
+      "details": {}
+    },
+    {
+      "test_name": "Trial Balance Report",
+      "status": "\u274c FAIL",
+      "message": "Error: (psycopg2.errors.UndefinedColumn) column ag.account_group_code does not exist\nLINE 19: ...JOIN account_groups ag ON ga.account_group_code = ag.account...\n                                                              ^\nHINT:  Perhaps you meant to reference the column \"ga.account_group_code\".\n\n[SQL: \n                    SELECT \n                        ga.glaccountid,\n                        ga.accountname,\n                        ga.accounttype,\n                        ag.account_group_name,\n                        ag.account_type as account_classification,\n                        COALESCE(SUM(gab.ytd_debits), 0) as total_debits,\n                        COALESCE(SUM(gab.ytd_credits), 0) as total_credits,\n                        COALESCE(SUM(gab.ytd_balance), 0) as net_balance,\n                        ga.currencycode as account_currency,\n                        COUNT(DISTINCT gab.posting_period) as periods_with_activity\n                    FROM glaccount ga\n                    LEFT JOIN gl_account_balances gab ON ga.glaccountid = gab.gl_account\n                        AND gab.company_code = %(company_code)s\n                        AND gab.ledger_id = %(ledger_id)s\n                        AND gab.fiscal_year = %(fiscal_year)s\n                        \n                    LEFT JOIN account_groups ag ON ga.account_group_code = ag.account_group_code\n                    WHERE ga.companycodeid = %(company_code)s\n                    GROUP BY ga.glaccountid, ga.accountname, ga.accounttype, \n                             ag.account_group_name, ag.account_type, ga.currencycode\n                    HAVING COALESCE(SUM(gab.ytd_debits), 0) != 0 \n                        OR COALESCE(SUM(gab.ytd_credits), 0) != 0\n                    ORDER BY ga.glaccountid\n                ]\n[parameters: {'company_code': '1000', 'ledger_id': '2L', 'fiscal_year': 2025}]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:46:29.724447",
+      "details": {}
+    },
+    {
+      "test_name": "Comparative Statements",
+      "status": "\u274c FAIL",
+      "message": "Error: No valid ledger data found",
+      "timestamp": "2025-08-06T09:46:29.726388",
+      "details": {}
+    },
+    {
+      "test_name": "Balance Inquiry Report",
+      "status": "\u2705 PASS",
+      "message": "Generated balance inquiry for 3 accounts",
+      "timestamp": "2025-08-06T09:46:29.727710",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Posting Impact Report",
+      "status": "\u2705 PASS",
+      "message": "Generated impact report for 0 documents",
+      "timestamp": "2025-08-06T09:46:29.729079",
+      "details": {}
+    },
+    {
+      "test_name": "Database Query Performance",
+      "status": "\u2705 PASS",
+      "message": "Query time: 0.58ms",
+      "timestamp": "2025-08-06T09:46:29.729669",
+      "details": {}
+    },
+    {
+      "test_name": "Service Initialization Performance",
+      "status": "\u2705 PASS",
+      "message": "Initialization time: 0.00ms",
+      "timestamp": "2025-08-06T09:46:29.729677",
+      "details": {}
+    },
+    {
+      "test_name": "Workflow Status Check",
+      "status": "\u2705 PASS",
+      "message": "Workflow status: APPROVED",
+      "timestamp": "2025-08-06T09:46:29.730123",
+      "details": {}
+    },
+    {
+      "test_name": "Source Document Tracking",
+      "status": "\u274c FAIL",
+      "message": "Posted: False, Target: 0, Success: 0",
+      "timestamp": "2025-08-06T09:46:29.730374",
+      "details": {}
+    },
+    {
+      "test_name": "Referential Integrity",
+      "status": "\u2705 PASS",
+      "message": "Found 0 orphan parallel documents",
+      "timestamp": "2025-08-06T09:46:29.733239",
+      "details": {}
+    }
+  ],
+  "test_document_used": "TEST20250806094629",
+  "overall_assessment": {
+    "production_ready": false,
+    "issues_found": 8,
+    "recommendation": "Requires attention before production"
+  }
+}

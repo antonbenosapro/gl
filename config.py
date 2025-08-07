@@ -32,7 +32,9 @@ class Settings(BaseSettings):
     jwt_secret_key: str = "default-jwt-secret"
     jwt_algorithm: str = "HS256"
     jwt_expiration_hours: int = 24
-    session_timeout_minutes: int = 60
+    session_timeout_minutes: int = 480  # 8 hours (was 60)
+    max_inactivity_minutes: int = 240   # 4 hours of inactivity allowed
+    max_session_hours: int = 24         # 24 hours absolute maximum
     password_min_length: int = 8
     max_login_attempts: int = 5
     lockout_duration_minutes: int = 30

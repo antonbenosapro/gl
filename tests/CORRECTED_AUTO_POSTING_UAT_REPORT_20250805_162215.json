@@ -1,0 +1,158 @@
+{
+  "uat_summary": {
+    "start_time": "2025-08-05T16:22:15.371889",
+    "end_time": "2025-08-05T16:22:15.652558",
+    "total_duration": 0.280669,
+    "total_tests": 8,
+    "passed_tests": 7,
+    "failed_tests": 1,
+    "success_rate": 87.5,
+    "overall_status": "FAILED"
+  },
+  "test_results": [
+    {
+      "test_name": "Environment Validation",
+      "status": "PASSED",
+      "duration": 0.010837793350219727,
+      "timestamp": "2025-08-05 16:22:15.382745",
+      "details": {
+        "db_response_time": 0.0003306865692138672,
+        "auto_posting_schema": true,
+        "auto_poster_usage": 3
+      }
+    },
+    {
+      "test_name": "Single Document Flow",
+      "status": "PASSED",
+      "duration": 0.03197455406188965,
+      "timestamp": "2025-08-05 16:22:15.414727",
+      "details": {
+        "approval_time": 0.0200958251953125,
+        "approval_message": "Document approved and automatically posted to GL: Document UAT162215 posted successfully to GL",
+        "auto_posted": true,
+        "final_status": {
+          "workflow_status": "POSTED",
+          "posted_by": "AUTO_POSTER",
+          "auto_posted": true,
+          "auto_posted_by": "AUTO_POSTER",
+          "gl_transactions": 2
+        }
+      }
+    },
+    {
+      "test_name": "Multiple Document Processing",
+      "status": "PASSED",
+      "duration": 0.2015242576599121,
+      "timestamp": "2025-08-05 16:22:15.616259",
+      "details": {
+        "documents_processed": 3,
+        "documents_posted": 3,
+        "gl_transactions": 6,
+        "average_approval_time": 0.013224124908447266,
+        "total_time": 0.0396723747253418
+      }
+    },
+    {
+      "test_name": "Segregation of Duties",
+      "status": "PASSED",
+      "duration": 0.013567447662353516,
+      "timestamp": "2025-08-05 16:22:15.629834",
+      "details": {
+        "self_approval_blocked": true,
+        "self_approval_message": "Cannot approve your own journal entry (Segregation of Duties violation)",
+        "different_approval_success": true,
+        "different_approval_message": "Document approved and automatically posted to GL: Document SOD162215 posted successfully to GL",
+        "posted_by": "AUTO_POSTER",
+        "auto_posted_by": "AUTO_POSTER"
+      }
+    },
+    {
+      "test_name": "Balance Accuracy",
+      "status": "PASSED",
+      "duration": 0.0018410682678222656,
+      "timestamp": "2025-08-05 16:22:15.631682",
+      "details": {
+        "account_balances": {
+          "100001": {
+            "ytd_balance": 550.0,
+            "ytd_debits": 1850.0,
+            "ytd_credits": 1300.0,
+            "transaction_count": 11
+          },
+          "400001": {
+            "ytd_balance": 1300.0,
+            "ytd_debits": 1300.0,
+            "ytd_credits": 0.0,
+            "transaction_count": 5
+          },
+          "300001": {
+            "ytd_balance": -1850.0,
+            "ytd_debits": 0.0,
+            "ytd_credits": 1850.0,
+            "transaction_count": 6
+          }
+        },
+        "balance_equation": {
+          "total_debits": 3150.0,
+          "total_credits": 3150.0,
+          "difference": 0.0,
+          "balanced": true
+        }
+      }
+    },
+    {
+      "test_name": "Performance Validation",
+      "status": "PASSED",
+      "duration": 0.003158092498779297,
+      "timestamp": "2025-08-05 16:22:15.634846",
+      "details": {
+        "statistics_query_time": 0.001932382583618164,
+        "eligible_query_time": 0.0012183189392089844,
+        "statistics": {
+          "period_days": 1,
+          "company_code": "TEST",
+          "auto_posted_count": 8,
+          "auto_posted_amount": 5100.0,
+          "pending_auto_post": 1,
+          "success_rate": 88.88888888888889
+        },
+        "eligible_count": 2
+      }
+    },
+    {
+      "test_name": "Business Rules",
+      "status": "FAILED",
+      "duration": 0,
+      "timestamp": "2025-08-05 16:22:15.639138",
+      "details": "Business rule violations found: {'non_approved_auto_posted': 8, 'wrong_poster_user': 0, 'missing_timestamps': 3}"
+    },
+    {
+      "test_name": "User Experience",
+      "status": "PASSED",
+      "duration": 0.013405799865722656,
+      "timestamp": "2025-08-05 16:22:15.652553",
+      "details": {
+        "workflow_time": 0.012662887573242188,
+        "approval_success": true,
+        "clear_feedback": true,
+        "seamless_experience": true,
+        "immediate_balance": true
+      }
+    }
+  ],
+  "test_documents": [
+    "UAT162215",
+    "MUL16221500",
+    "MUL16221501",
+    "MUL16221502",
+    "SOD162215",
+    "UX162215"
+  ],
+  "production_readiness": {
+    "functional_requirements": true,
+    "performance_acceptable": true,
+    "business_rules_enforced": true,
+    "user_experience_positive": true,
+    "ready_for_production": false
+  }
+}

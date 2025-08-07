@@ -1,0 +1,4 @@
+document_number,company_code,posting_date,reference,currency_code,exchange_rate
+UPLOAD_TEST_004,1000,2025-08-06,Utilities Payment,USD,1.0
+UPLOAD_TEST_005,2000,2025-08-06,Insurance Premium,USD,1.0
+UPLOAD_TEST_006,1000,2025-08-06,Office Supplies,EUR,1.1

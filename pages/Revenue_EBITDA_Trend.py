@@ -21,16 +21,16 @@ def get_filter_options():
     """Get filter options from database"""
     with engine.connect() as conn:
         companies = [row[0] for row in conn.execute(text("SELECT DISTINCT companycodeid FROM journalentryheader ORDER BY companycodeid")).fetchall() if row[0]]
-        cost_centers = [row[0] for row in conn.execute(text("SELECT DISTINCT ledgerid FROM journalentryline WHERE ledgerid IS NOT NULL ORDER BY ledgerid")).fetchall() if row[0]]
+        business_units = [row[0] for row in conn.execute(text("SELECT DISTINCT business_unit_id FROM journalentryline WHERE business_unit_id IS NOT NULL ORDER BY business_unit_id")).fetchall() if row[0]]
         years = [row[0] for row in conn.execute(text("SELECT DISTINCT fiscalyear FROM journalentryheader ORDER BY fiscalyear")).fetchall() if row[0]]
     
-    return companies, cost_centers, years
+    return companies, business_units, years
 
 def calculate_ebitda(net_income, interest_expense, income_taxes, depreciation, amortization):
     """Calculate EBITDA = Net Income + Interest Expense + Income Taxes + Depreciation + Amortization"""
     return net_income + interest_expense + income_taxes + depreciation + amortization
 
-def get_monthly_data(companies, cost_centers, years):
+def get_monthly_data(companies, business_units, years):
     """Get monthly revenue and expense data"""
     
     # Build query conditions
@@ -42,10 +42,10 @@ def get_monthly_data(companies, cost_centers, years):
         where_conditions.append(f"jeh.companycodeid IN ({comp_ph})")
         params.update({f"comp{i}": v for i, v in enumerate(companies)})
     
-    if cost_centers and "All" not in cost_centers:
-        cc_ph = ", ".join([f":cc{i}" for i in range(len(cost_centers))])
-        where_conditions.append(f"jel.ledgerid IN ({cc_ph})")
-        params.update({f"cc{i}": v for i, v in enumerate(cost_centers)})
+    if business_units and "All" not in business_units:
+        bu_ph = ", ".join([f":bu{i}" for i in range(len(business_units))])
+        where_conditions.append(f"jel.business_unit_id IN ({bu_ph})")
+        params.update({f"bu{i}": v for i, v in enumerate(business_units)})
     
     if years and "All" not in years:
         year_ph = ", ".join([f":year{i}" for i in range(len(years))])
@@ -99,7 +99,7 @@ def get_monthly_data(companies, cost_centers, years):
     return df
 
 # Get filter options
-companies, cost_centers, years = get_filter_options()
+companies, business_units, years = get_filter_options()
 
 # Filter Section
 with st.expander("🔍 Filter Options", expanded=True):
@@ -110,8 +110,8 @@ with st.expander("🔍 Filter Options", expanded=True):
         selected_companies = st.multiselect("Company Code(s)", ["All"] + companies, default=["All"])
     
     with col2:
-        st.subheader("🏷️ Cost Center")
-        selected_cost_centers = st.multiselect("Cost Center(s)", ["All"] + cost_centers, default=["All"])
+        st.subheader("🏢 Business Unit")
+        selected_business_units = st.multiselect("Business Unit(s)", ["All"] + business_units, default=["All"])
     
     with col3:
         st.subheader("📅 Fiscal Year")
@@ -122,7 +122,7 @@ if st.button("📈 Generate Trend Analysis", type="primary"):
     with st.spinner("Generating trend analysis..."):
         try:
             # Get data
-            df = get_monthly_data(selected_companies, selected_cost_centers, selected_years)
+            df = get_monthly_data(selected_companies, selected_business_units, selected_years)
             
             if df.empty:
                 st.warning("No data found for the selected filters.")

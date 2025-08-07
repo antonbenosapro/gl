@@ -1,0 +1,11 @@
+document_number,company_code,line_number,posting_date,gl_account,debit_amount,credit_amount,description,cost_center,currency_code,reference
+UPLOAD_TEST_001,1000,1,2025-08-06,400001,3000.0,0.0,Salary Expense,CC100,USD,January Payroll
+UPLOAD_TEST_001,1000,2,2025-08-06,400002,2000.0,0.0,Benefits Expense,CC100,USD,January Payroll
+UPLOAD_TEST_001,1000,3,2025-08-06,200001,0.0,3000.0,Salary Payable,CC100,USD,January Payroll
+UPLOAD_TEST_001,1000,4,2025-08-06,200002,0.0,2000.0,Benefits Payable,CC100,USD,January Payroll
+UPLOAD_TEST_002,1000,1,2025-08-06,600001,1500.0,0.0,Rent Expense,CC200,USD,January Rent
+UPLOAD_TEST_002,1000,2,2025-08-06,100001,0.0,1500.0,Cash,CC200,USD,January Rent
+UPLOAD_TEST_003,1000,1,2025-08-06,500001,4000.0,0.0,Marketing Expense,CC300,USD,Marketing Campaign
+UPLOAD_TEST_003,1000,2,2025-08-06,500002,1000.0,0.0,Advertising Expense,CC300,USD,Marketing Campaign
+UPLOAD_TEST_003,1000,3,2025-08-06,300001,0.0,4000.0,Accounts Payable,CC300,USD,Marketing Campaign
+UPLOAD_TEST_003,1000,4,2025-08-06,300002,0.0,1000.0,Accrued Expenses,CC300,USD,Marketing Campaign

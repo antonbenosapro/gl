@@ -1,0 +1,282 @@
+{
+  "test_summary": {
+    "start_time": "2025-08-06T09:45:19.616578",
+    "end_time": "2025-08-06T09:45:19.642523",
+    "duration_seconds": 0.025945,
+    "tests_run": 35,
+    "tests_passed": 20,
+    "tests_failed": 15,
+    "success_rate_percentage": 57.14285714285714
+  },
+  "system_status": {
+    "ledgers": {
+      "total": 5,
+      "leading": 1,
+      "parallel": 4,
+      "configured_parallel": [
+        "2L",
+        "3L",
+        "4L",
+        "CL"
+      ]
+    }
+  },
+  "performance_metrics": {},
+  "test_details": [
+    {
+      "test_name": "Database Connection",
+      "status": "\u2705 PASS",
+      "message": "Database accessible",
+      "timestamp": "2025-08-06T09:45:19.626535",
+      "details": {}
+    },
+    {
+      "test_name": "Table: ledger",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:45:19.628022",
+      "details": {}
+    },
+    {
+      "test_name": "Table: journalentryheader",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:45:19.628493",
+      "details": {}
+    },
+    {
+      "test_name": "Table: journalentryline",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:45:19.628960",
+      "details": {}
+    },
+    {
+      "test_name": "Table: parallel_posting_audit_log",
+      "status": "\u274c FAIL",
+      "message": "Table missing",
+      "timestamp": "2025-08-06T09:45:19.629403",
+      "details": {}
+    },
+    {
+      "test_name": "Table: exchange_rates",
+      "status": "\u274c FAIL",
+      "message": "Table missing",
+      "timestamp": "2025-08-06T09:45:19.629863",
+      "details": {}
+    },
+    {
+      "test_name": "Table: gl_account_balances",
+      "status": "\u2705 PASS",
+      "message": "Table exists",
+      "timestamp": "2025-08-06T09:45:19.630328",
+      "details": {}
+    },
+    {
+      "test_name": "Table: derivation_rules",
+      "status": "\u274c FAIL",
+      "message": "Table missing",
+      "timestamp": "2025-08-06T09:45:19.630791",
+      "details": {}
+    },
+    {
+      "test_name": "System Infrastructure",
+      "status": "\u274c FAIL",
+      "message": "Infrastructure test failed: (psycopg2.errors.UndefinedColumn) column \"view_name\" does not exist\nLINE 3:                         WHERE view_name = 'v_parallel_postin...\n                                      ^\n\n[SQL: \n                        SELECT COUNT(*) FROM information_schema.views \n                        WHERE view_name = 'v_parallel_posting_status'\n                    ]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:45:19.631574",
+      "details": {}
+    },
+    {
+      "test_name": "ParallelPostingService.process_approved_document_to_all_ledgers",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:45:19.631588",
+      "details": {}
+    },
+    {
+      "test_name": "EnhancedAutoPostingService.process_document_with_parallel_posting",
+      "status": "\u274c FAIL",
+      "message": "Method missing",
+      "timestamp": "2025-08-06T09:45:19.631592",
+      "details": {}
+    },
+    {
+      "test_name": "EnhancedWorkflowIntegration.approve_document_with_parallel_posting",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:45:19.631594",
+      "details": {}
+    },
+    {
+      "test_name": "CurrencyTranslationService.translate_amount",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:45:19.631597",
+      "details": {}
+    },
+    {
+      "test_name": "ParallelLedgerReportingService.generate_trial_balance_by_ledger",
+      "status": "\u2705 PASS",
+      "message": "Method available",
+      "timestamp": "2025-08-06T09:45:19.631599",
+      "details": {}
+    },
+    {
+      "test_name": "Ledger Table Read",
+      "status": "\u2705 PASS",
+      "message": "Found 5 ledgers",
+      "timestamp": "2025-08-06T09:45:19.632136",
+      "details": {
+        "ledger_count": 5
+      }
+    },
+    {
+      "test_name": "Database Connectivity",
+      "status": "\u274c FAIL",
+      "message": "Database connectivity test failed: (psycopg2.errors.UndefinedTable) relation \"exchange_rates\" does not exist\nLINE 1: SELECT COUNT(*) FROM exchange_rates\n                             ^\n\n[SQL: SELECT COUNT(*) FROM exchange_rates]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:45:19.632403",
+      "details": {}
+    },
+    {
+      "test_name": "Leading Ledger Count",
+      "status": "\u2705 PASS",
+      "message": "Expected 1 leading ledger, found 1",
+      "timestamp": "2025-08-06T09:45:19.632905",
+      "details": {
+        "leading_ledger": "L1"
+      }
+    },
+    {
+      "test_name": "Parallel Ledger: 2L",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:45:19.632913",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Ledger: 3L",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:45:19.632916",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Ledger: 4L",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:45:19.632918",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Ledger: CL",
+      "status": "\u2705 PASS",
+      "message": "Configured",
+      "timestamp": "2025-08-06T09:45:19.632919",
+      "details": {}
+    },
+    {
+      "test_name": "USD to EUR Translation",
+      "status": "\u2705 PASS",
+      "message": "$1000.00 USD = \u20ac925.00 EUR",
+      "timestamp": "2025-08-06T09:45:19.633925",
+      "details": {}
+    },
+    {
+      "test_name": "USD to GBP Translation",
+      "status": "\u2705 PASS",
+      "message": "$1000.00 USD = \u00a3785.00 GBP",
+      "timestamp": "2025-08-06T09:45:19.634365",
+      "details": {}
+    },
+    {
+      "test_name": "Same Currency Translation",
+      "status": "\u2705 PASS",
+      "message": "USD to USD translation: $1000.00",
+      "timestamp": "2025-08-06T09:45:19.634372",
+      "details": {}
+    },
+    {
+      "test_name": "Create Source Document",
+      "status": "\u274c FAIL",
+      "message": "Document creation failed: (psycopg2.errors.UndefinedColumn) column \"currency\" of relation \"journalentryline\" does not exist\nLINE 4: ...                       debitamount, creditamount, currency, ...\n                                                             ^\n\n[SQL: \n                        INSERT INTO journalentryline (\n                            documentnumber, companycodeid, linenumber, glaccountid,\n                            debitamount, creditamount, currency, description\n                        ) VALUES (\n                            %(doc_number)s, %(company_code)s, %(line_number)s, %(account)s,\n                            %(debit_amount)s, %(credit_amount)s, 'USD', 'E2E Test Line'\n                        )\n                    ]\n[parameters: {'doc_number': 'TEST20250806094519', 'company_code': '1000', 'line_number': 1, 'account': '100001', 'debit_amount': 5000.0, 'credit_amount': 0.0}]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:45:19.635886",
+      "details": {}
+    },
+    {
+      "test_name": "Workflow Integration",
+      "status": "\u274c FAIL",
+      "message": "No test document available",
+      "timestamp": "2025-08-06T09:45:19.635895",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Posting Engine",
+      "status": "\u274c FAIL",
+      "message": "No test document available",
+      "timestamp": "2025-08-06T09:45:19.635898",
+      "details": {}
+    },
+    {
+      "test_name": "Currency Translation",
+      "status": "\u274c FAIL",
+      "message": "No test document available",
+      "timestamp": "2025-08-06T09:45:19.635901",
+      "details": {}
+    },
+    {
+      "test_name": "Balance Validation",
+      "status": "\u274c FAIL",
+      "message": "No test document available",
+      "timestamp": "2025-08-06T09:45:19.635903",
+      "details": {}
+    },
+    {
+      "test_name": "Trial Balance Report",
+      "status": "\u274c FAIL",
+      "message": "Error: (psycopg2.errors.UndefinedColumn) column ga.account_group_id does not exist\nLINE 19: ...                   LEFT JOIN account_groups ag ON ga.account...\n                                                              ^\nHINT:  Perhaps you meant to reference the column \"ga.account_group_code\".\n\n[SQL: \n                    SELECT \n                        ga.glaccountid,\n                        ga.accountname,\n                        ga.accounttype,\n                        ag.account_group_name,\n                        ag.account_type as account_classification,\n                        COALESCE(SUM(gab.ytd_debits), 0) as total_debits,\n                        COALESCE(SUM(gab.ytd_credits), 0) as total_credits,\n                        COALESCE(SUM(gab.ytd_balance), 0) as net_balance,\n                        ga.currencycode as account_currency,\n                        COUNT(DISTINCT gab.posting_period) as periods_with_activity\n                    FROM glaccount ga\n                    LEFT JOIN gl_account_balances gab ON ga.glaccountid = gab.gl_account\n                        AND gab.company_code = %(company_code)s\n                        AND gab.ledger_id = %(ledger_id)s\n                        AND gab.fiscal_year = %(fiscal_year)s\n                        \n                    LEFT JOIN account_groups ag ON ga.account_group_id = ag.account_group_id\n                    WHERE ga.companycodeid = %(company_code)s\n                    GROUP BY ga.glaccountid, ga.accountname, ga.accounttype, \n                             ag.account_group_name, ag.account_type, ga.currencycode\n                    HAVING COALESCE(SUM(gab.ytd_debits), 0) != 0 \n                        OR COALESCE(SUM(gab.ytd_credits), 0) != 0\n                    ORDER BY ga.glaccountid\n                ]\n[parameters: {'company_code': '1000', 'ledger_id': '2L', 'fiscal_year': 2025}]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:45:19.637199",
+      "details": {}
+    },
+    {
+      "test_name": "Comparative Statements",
+      "status": "\u274c FAIL",
+      "message": "Error: No valid ledger data found",
+      "timestamp": "2025-08-06T09:45:19.639170",
+      "details": {}
+    },
+    {
+      "test_name": "Balance Inquiry Report",
+      "status": "\u2705 PASS",
+      "message": "Generated balance inquiry for 3 accounts",
+      "timestamp": "2025-08-06T09:45:19.640479",
+      "details": {}
+    },
+    {
+      "test_name": "Parallel Posting Impact Report",
+      "status": "\u2705 PASS",
+      "message": "Generated impact report for 0 documents",
+      "timestamp": "2025-08-06T09:45:19.641992",
+      "details": {}
+    },
+    {
+      "test_name": "Performance Analysis",
+      "status": "\u274c FAIL",
+      "message": "Performance analysis test failed: (psycopg2.errors.UndefinedTable) relation \"v_parallel_posting_status\" does not exist\nLINE 2:                     SELECT COUNT(*) FROM v_parallel_posting_...\n                                                 ^\n\n[SQL: \n                    SELECT COUNT(*) FROM v_parallel_posting_status\n                ]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "timestamp": "2025-08-06T09:45:19.642512",
+      "details": {}
+    },
+    {
+      "test_name": "Data Consistency",
+      "status": "\u274c FAIL",
+      "message": "No test document available",
+      "timestamp": "2025-08-06T09:45:19.642520",
+      "details": {}
+    }
+  ],
+  "test_document_used": null,
+  "overall_assessment": {
+    "production_ready": false,
+    "issues_found": 15,
+    "recommendation": "Requires attention before production"
+  }
+}

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from db_config import engine
 from sqlalchemy import text
-from auth.middleware import authenticator
+from auth.optimized_middleware import optimized_authenticator as authenticator
 from utils.logger import StreamlitLogHandler
 from utils.navigation import show_sap_sidebar, show_breadcrumb
 

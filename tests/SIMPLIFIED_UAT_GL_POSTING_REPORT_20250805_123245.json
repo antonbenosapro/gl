@@ -1,0 +1,142 @@
+{
+  "uat_summary": {
+    "total_tests": 8,
+    "passed_tests": 8,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "test_date": "2025-08-05T12:32:45.926391",
+    "status": "PASSED"
+  },
+  "test_results": [
+    {
+      "test_name": "Environment Setup",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.894641",
+      "details": {
+        "company_exists": true,
+        "period_open": true,
+        "accounts_count": 4
+      }
+    },
+    {
+      "test_name": "Create Approved Journal Entries",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.902723",
+      "details": {
+        "entries_created": 3,
+        "document_numbers": [
+          "UAT20250805001",
+          "UAT20250805002",
+          "UAT20250805003"
+        ]
+      }
+    },
+    {
+      "test_name": "Individual Document Posting",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.910493",
+      "details": {
+        "posted_document": "UAT20250805001",
+        "posting_message": "Document UAT20250805001 posted successfully to GL"
+      }
+    },
+    {
+      "test_name": "Batch Posting",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.920046",
+      "details": {
+        "batch_results": {
+          "total_documents": 2,
+          "posted_successfully": 2,
+          "failed_documents": [],
+          "success_documents": [
+            {
+              "document": "UAT20250805002",
+              "message": "Document UAT20250805002 posted successfully to GL"
+            },
+            {
+              "document": "UAT20250805003",
+              "message": "Document UAT20250805003 posted successfully to GL"
+            }
+          ],
+          "batch_start_time": "2025-08-05 12:32:45.910504",
+          "batch_end_time": "2025-08-05 12:32:45.919969",
+          "batch_duration": 0.009465
+        },
+        "successful_posts": 2
+      }
+    },
+    {
+      "test_name": "Account Balances",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.921381",
+      "details": {
+        "account_100001": {
+          "beginning_balance": 0.0,
+          "period_debits": 600.0,
+          "period_credits": 0.0,
+          "ending_balance": 600.0,
+          "ytd_debits": 600.0,
+          "ytd_credits": 0.0,
+          "ytd_balance": 600.0,
+          "last_posting_date": "2025-08-05",
+          "transaction_count": 3
+        },
+        "account_300001": {
+          "beginning_balance": 0.0,
+          "period_debits": 0.0,
+          "period_credits": 600.0,
+          "ending_balance": -600.0,
+          "ytd_debits": 0.0,
+          "ytd_credits": 600.0,
+          "ytd_balance": -600.0,
+          "last_posting_date": "2025-08-05",
+          "transaction_count": 3
+        },
+        "balance_check": "PASSED"
+      }
+    },
+    {
+      "test_name": "Preview Functionality",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.922330",
+      "details": {
+        "header_fields": 9,
+        "line_count": 2
+      }
+    },
+    {
+      "test_name": "Security Controls",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.925288",
+      "details": {
+        "segregation_of_duties": true,
+        "sod_message": "Cannot post your own journal entry (Segregation of Duties)"
+      }
+    },
+    {
+      "test_name": "Audit Trail",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:32:45.926384",
+      "details": {
+        "audit_trail_entries": 3,
+        "gl_transactions": 6,
+        "posting_documents": 3
+      }
+    }
+  ],
+  "test_data": {
+    "approved_entries": [
+      "UAT20250805001",
+      "UAT20250805002",
+      "UAT20250805003"
+    ],
+    "posted_individual": "UAT20250805001"
+  },
+  "environment": {
+    "company_code": "TEST",
+    "fiscal_year": 2025,
+    "posting_period": 8,
+    "test_date": "2025-08-05"
+  }
+}

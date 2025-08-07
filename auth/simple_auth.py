@@ -7,6 +7,7 @@ from sqlalchemy import text
 from db_config import engine
 from auth.models import LoginRequest, LoginResponse, User
 from auth.security import security_manager, rate_limiter
+from auth.security_monitor import security_monitor
 from utils.logger import get_logger, log_user_action
 
 logger = get_logger("simple_auth")

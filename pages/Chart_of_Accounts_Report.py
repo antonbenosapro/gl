@@ -9,7 +9,7 @@ from utils.navigation import show_sap_sidebar, show_breadcrumb
 # Configure page
 st.set_page_config(page_title="📋 Chart of Accounts Report", layout="wide", initial_sidebar_state="expanded")
 
-# SAP-Style Navigation
+# Navigation
 show_sap_sidebar()
 show_breadcrumb("Chart of Accounts Report", "Master Data", "Reports")
 
@@ -20,7 +20,8 @@ def get_filter_options():
     with engine.connect() as conn:
         account_types = [row[0] for row in conn.execute(text("SELECT DISTINCT accounttype FROM glaccount ORDER BY accounttype")).fetchall() if row[0]]
         account_categories = [row[0] for row in conn.execute(text("SELECT DISTINCT LEFT(glaccountid, 1) as category FROM glaccount ORDER BY category")).fetchall() if row[0]]
-        companies = [row[0] for row in conn.execute(text("SELECT DISTINCT companycodeid FROM glaccount WHERE companycodeid IS NOT NULL ORDER BY companycodeid")).fetchall() if row[0]]
+        account_groups = [row[0] for row in conn.execute(text("SELECT DISTINCT account_group_code FROM glaccount WHERE account_group_code IS NOT NULL ORDER BY account_group_code")).fetchall() if row[0]]
+        account_classes = [row[0] for row in conn.execute(text("SELECT DISTINCT account_class FROM glaccount WHERE account_class IS NOT NULL ORDER BY account_class")).fetchall() if row[0]]
         
         # Get account ranges
         result = conn.execute(text("SELECT MIN(glaccountid), MAX(glaccountid) FROM glaccount"))
@@ -35,10 +36,10 @@ def get_filter_options():
         """)).fetchall()
         transaction_statuses = [row[0] for row in transaction_status]
     
-    return account_types, account_categories, companies, min_account, max_account, transaction_statuses
+    return account_types, account_categories, account_groups, account_classes, min_account, max_account, transaction_statuses
 
 # Get filter options
-account_types, account_categories, companies, min_account, max_account, transaction_statuses = get_filter_options()
+account_types, account_categories, account_groups, account_classes, min_account, max_account, transaction_statuses = get_filter_options()
 
 # Filter Section
 with st.expander("🔍 Filter Options", expanded=True):
@@ -50,8 +51,9 @@ with st.expander("🔍 Filter Options", expanded=True):
         selected_categories = st.multiselect("Account Category (First Digit)", ["All"] + account_categories, default=["All"])
         selected_transaction_status = st.multiselect("Transaction Status", ["All"] + transaction_statuses, default=["All"])
         
-        st.subheader("🏢 Company Info")
-        selected_companies = st.multiselect("Company Code", ["All"] + companies, default=["All"])
+        st.subheader("🏗️ Account Structure")
+        selected_account_groups = st.multiselect("Account Group", ["All"] + account_groups, default=["All"])
+        selected_account_classes = st.multiselect("Account Class", ["All"] + account_classes, default=["All"])
     
     with col2:
         st.subheader("🔢 Account Range")
@@ -101,10 +103,15 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
         where_conditions.append(f"LEFT(coa.glaccountid, 1) IN ({cat_ph})")
         params.update({f"cat{i}": v for i, v in enumerate(selected_categories)})
     
-    if selected_companies:
-        company_ph = ", ".join([f":company{i}" for i in range(len(selected_companies))])
-        where_conditions.append(f"coa.companycodeid IN ({company_ph})")
-        params.update({f"company{i}": v for i, v in enumerate(selected_companies)})
+    if selected_account_groups and "All" not in selected_account_groups:
+        group_ph = ", ".join([f":group{i}" for i in range(len(selected_account_groups))])
+        where_conditions.append(f"coa.account_group_code IN ({group_ph})")
+        params.update({f"group{i}": v for i, v in enumerate(selected_account_groups)})
+    
+    if selected_account_classes and "All" not in selected_account_classes:
+        class_ph = ", ".join([f":class{i}" for i in range(len(selected_account_classes))])
+        where_conditions.append(f"coa.account_class IN ({class_ph})")
+        params.update({f"class{i}": v for i, v in enumerate(selected_account_classes)})
     
     if account_range_start:
         where_conditions.append("coa.glaccountid >= :account_start")
@@ -125,7 +132,7 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
     # Description search removed - column doesn't exist in glaccount table
     
     if show_reconciliation:
-        where_conditions.append("coa.isreconaccount = true")
+        where_conditions.append("coa.reconciliation_account_type IS NOT NULL AND coa.reconciliation_account_type != 'NONE'")
     
     # Build the main query
     balance_calculation = ""
@@ -168,16 +175,18 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
         coa.glaccountid,
         coa.accountname,
         coa.accounttype,
-        coa.companycodeid,
-        coa.isreconaccount,
-        coa.isopenitemmanaged
+        coa.account_class,
+        coa.account_group_code,
+        coa.reconciliation_account_type,
+        coa.open_item_management
         {balance_calculation}
         {transaction_count_calc}
     FROM 
         glaccount coa
         {joins}
-    {f"WHERE {' AND '.join(where_conditions)}" if where_conditions else ""}
-    {f"GROUP BY coa.glaccountid, coa.accountname, coa.accounttype, coa.companycodeid, coa.isreconaccount, coa.isopenitemmanaged" if joins else ""}
+    WHERE (coa.marked_for_deletion = FALSE OR coa.marked_for_deletion IS NULL)
+        {f" AND {' AND '.join(where_conditions)}" if where_conditions else ""}
+    {f"GROUP BY coa.glaccountid, coa.accountname, coa.accounttype, coa.account_class, coa.account_group_code, coa.reconciliation_account_type, coa.open_item_management" if joins else ""}
     {f"HAVING {' AND '.join(having_conditions)}" if having_conditions else ""}
     ORDER BY {order_by}
     """
@@ -194,10 +203,9 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
                 st.subheader(f"📋 Chart of Accounts Results")
                 st.caption(f"Found {len(df)} accounts matching your criteria")
                 
-                # Format data for display
-                # Note: Using isreconaccount as status since isactive column doesn't exist
-                df['recon_status'] = df['isreconaccount'].apply(lambda x: "✅ Reconciliation" if x else "❌ No Reconciliation")
-                df['openitem_status'] = df['isopenitemmanaged'].apply(lambda x: "✅ Open Item" if x else "❌ Standard")
+                # Format data for display using structured fields
+                df['recon_status'] = df['reconciliation_account_type'].apply(lambda x: f"✅ {x}" if x and x != 'NONE' else "❌ No Reconciliation")
+                df['openitem_status'] = df['open_item_management'].apply(lambda x: "✅ Open Item" if x else "❌ Standard")
                 
                 if show_balances:
                     df['balance_formatted'] = df['current_balance'].apply(lambda x: f"{x:,.2f}")
@@ -210,10 +218,10 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
                     with col1:
                         st.metric("Total Accounts", f"{len(df):,}")
                     with col2:
-                        recon_count = df['isreconaccount'].sum()
+                        recon_count = (df['reconciliation_account_type'] != 'NONE').sum()
                         st.metric("Reconciliation Accounts", f"{recon_count:,}")
                     with col3:
-                        openitem_count = df['isopenitemmanaged'].sum()
+                        openitem_count = df['open_item_management'].sum()
                         st.metric("Open Item Accounts", f"{openitem_count:,}")
                     with col4:
                         account_types_count = df['accounttype'].nunique()
@@ -245,8 +253,8 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
                         st.subheader(f"{icon} {acc_type} Accounts ({len(type_data)} accounts)")
                         
                         # Prepare display columns
-                        display_columns = ['glaccountid', 'accountname', 'companycodeid', 'recon_status', 'openitem_status']
-                        column_names = ['Account ID', 'Account Name', 'Company', 'Reconciliation', 'Open Item']
+                        display_columns = ['glaccountid', 'accountname', 'account_class', 'account_group_code', 'recon_status', 'openitem_status']
+                        column_names = ['Account ID', 'Account Name', 'Class', 'Account Group', 'Reconciliation', 'Open Item']
                         
                         if show_balances:
                             display_columns.append('balance_formatted')
@@ -274,8 +282,8 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
                 
                 else:
                     # Show all accounts in one table
-                    display_columns = ['glaccountid', 'accountname', 'accounttype', 'companycodeid', 'recon_status', 'openitem_status']
-                    column_names = ['Account ID', 'Account Name', 'Type', 'Company', 'Reconciliation', 'Open Item']
+                    display_columns = ['glaccountid', 'accountname', 'accounttype', 'account_class', 'account_group_code', 'recon_status', 'openitem_status']
+                    column_names = ['Account ID', 'Account Name', 'Type', 'Class', 'Account Group', 'Reconciliation', 'Open Item']
                     
                     if show_balances:
                         display_columns.append('balance_formatted')
@@ -315,7 +323,7 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
                     output = io.BytesIO()
                     with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
                         # Export detailed data
-                        export_columns = ['glaccountid', 'accountname', 'accounttype', 'companycodeid', 'isreconaccount', 'isopenitemmanaged']
+                        export_columns = ['glaccountid', 'accountname', 'accounttype', 'account_class', 'account_group_code', 'reconciliation_account_type', 'open_item_management']
                         if show_balances:
                             export_columns.append('current_balance')
                         if show_transaction_count:
@@ -355,7 +363,7 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
                         worksheet.write(summary_start + 1, 0, 'Total Accounts:', bold_fmt)
                         worksheet.write(summary_start + 1, 1, len(df))
                         worksheet.write(summary_start + 2, 0, 'Reconciliation Accounts:', bold_fmt)
-                        worksheet.write(summary_start + 2, 1, df['isreconaccount'].sum())
+                        worksheet.write(summary_start + 2, 1, (df['reconciliation_account_type'] != 'NONE').sum())
                         
                         if show_balances:
                             worksheet.write(summary_start + 3, 0, 'Total Balance:', bold_fmt)
@@ -370,7 +378,7 @@ if st.button("📋 Generate Chart of Accounts", type="primary"):
                 
                 with col2:
                     # CSV export
-                    export_columns = ['glaccountid', 'accountname', 'accounttype', 'companycodeid', 'isreconaccount', 'isopenitemmanaged']
+                    export_columns = ['glaccountid', 'accountname', 'accounttype', 'account_class', 'account_group_code', 'reconciliation_account_type', 'open_item_management']
                     if show_balances:
                         export_columns.append('current_balance')
                     if show_transaction_count:
@@ -427,4 +435,4 @@ with st.expander("ℹ️ About Chart of Accounts"):
     - **System Integration**: Export for other financial systems
     """)
 
-# Navigation is now handled by the SAP-style sidebar
+# Navigation is now handled by the sidebar

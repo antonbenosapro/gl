@@ -1,0 +1,234 @@
+{
+  "uat_summary": {
+    "test_date": "2025-08-07T12:50:29.373736",
+    "total_tests": 24,
+    "tests_passed": 23,
+    "tests_failed": 1,
+    "success_rate": "95.8%",
+    "overall_status": "FAIL"
+  },
+  "test_categories": {
+    "level_1_document_type": {
+      "tests": 4,
+      "description": "Document Type Override Tests"
+    },
+    "level_2_account_specific": {
+      "tests": 4,
+      "description": "GL Account Specific Tests"
+    },
+    "level_3_account_group": {
+      "tests": 6,
+      "description": "Account Group Default Tests"
+    },
+    "field_status_types": {
+      "tests": 3,
+      "description": "Field Status Type Tests"
+    },
+    "real_world_scenarios": {
+      "tests": 3,
+      "description": "Real-World Scenario Tests"
+    },
+    "edge_cases": {
+      "tests": 3,
+      "description": "Edge Case Tests"
+    },
+    "performance": {
+      "tests": 2,
+      "description": "Performance Tests"
+    }
+  },
+  "detailed_results": [
+    {
+      "test_name": "L1.1 - General Journal uses ASSET01 FSG (overrides account FSG)",
+      "expected": "ASSET01",
+      "actual": "ASSET01",
+      "passed": true,
+      "details": "Document SA overrides account 400001's normal FSG",
+      "timestamp": "2025-08-07T12:50:29.246745"
+    },
+    {
+      "test_name": "L1.2 - Cash Journal uses CASH01 FSG (overrides account FSG)",
+      "expected": "CASH01",
+      "actual": "CASH01",
+      "passed": true,
+      "details": "Document CA overrides account 400001's normal FSG",
+      "timestamp": "2025-08-07T12:50:29.248660"
+    },
+    {
+      "test_name": "L1.3 - Customer Invoice uses RECV01 FSG (overrides account FSG)",
+      "expected": "RECV01",
+      "actual": "RECV01",
+      "passed": true,
+      "details": "Document DR overrides account 100010's normal FSG",
+      "timestamp": "2025-08-07T12:50:29.249937"
+    },
+    {
+      "test_name": "L1.4 - ASSET01 validation (Business Unit OPT, Tax Code SUP)",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "details": "ASSET01 should allow missing business unit and tax code",
+      "timestamp": "2025-08-07T12:50:29.250823"
+    },
+    {
+      "test_name": "L2.1 - Revenue account uses REV01 FSG (no document override)",
+      "expected": "REV01",
+      "actual": "REV01",
+      "passed": true,
+      "details": "Account 400001 should inherit REV01 from its account group",
+      "timestamp": "2025-08-07T12:50:29.252403"
+    },
+    {
+      "test_name": "L2.2 - Cash account uses CASH01 FSG (no document override)",
+      "expected": "CASH01",
+      "actual": "CASH01",
+      "passed": true,
+      "details": "Account 100010 should inherit CASH01 from its account group",
+      "timestamp": "2025-08-07T12:50:29.253310"
+    },
+    {
+      "test_name": "L2.3 - REV01 validation (Business Unit, Tax Code, Business Area required)",
+      "expected": "False, 3 errors",
+      "actual": "False, 3 errors",
+      "passed": true,
+      "details": "Errors: ['Line 1: Business Unit is required (FSG: REQ)', 'Line 1: Business Area is required (FSG: REQ)', 'Line 1: Tax Code is required (FSG: REQ)']",
+      "timestamp": "2025-08-07T12:50:29.254083"
+    },
+    {
+      "test_name": "L2.4 - CASH01 validation (Business Unit suppressed)",
+      "expected": "False, 1+ errors",
+      "actual": "False, 1 errors",
+      "passed": true,
+      "details": "Should error on suppressed Business Unit: Line 1: Business Unit should not be provided (FSG: SUP - Suppressed)",
+      "timestamp": "2025-08-07T12:50:29.254908"
+    },
+    {
+      "test_name": "L3.1 - All active account groups have default FSG",
+      "expected": ">= 10 groups",
+      "actual": "19 groups",
+      "passed": true,
+      "details": "Groups with FSG: ['ACCR', 'CASH', 'COGS', 'EQTY', 'FINX', 'FXAS', 'INVA', 'INVT', 'LTDB', 'OCIE', 'OINC', 'OPEX', 'PAYB', 'PREP', 'RECV', 'RETE', 'SALE', 'STAT', 'STDB']",
+      "timestamp": "2025-08-07T12:50:29.256050"
+    },
+    {
+      "test_name": "L3.2 - Account Group SALE maps to REV01",
+      "expected": "REV01",
+      "actual": "REV01",
+      "passed": true,
+      "details": "Group SALE should use REV01 as default FSG",
+      "timestamp": "2025-08-07T12:50:29.256061"
+    },
+    {
+      "test_name": "L3.2 - Account Group CASH maps to CASH01",
+      "expected": "CASH01",
+      "actual": "CASH01",
+      "passed": true,
+      "details": "Group CASH should use CASH01 as default FSG",
+      "timestamp": "2025-08-07T12:50:29.256065"
+    },
+    {
+      "test_name": "L3.2 - Account Group OPEX maps to EXP01",
+      "expected": "EXP01",
+      "actual": "EXP01",
+      "passed": true,
+      "details": "Group OPEX should use EXP01 as default FSG",
+      "timestamp": "2025-08-07T12:50:29.256067"
+    },
+    {
+      "test_name": "L3.2 - Account Group COGS maps to COGS01",
+      "expected": "COGS01",
+      "actual": "COGS01",
+      "passed": true,
+      "details": "Group COGS should use COGS01 as default FSG",
+      "timestamp": "2025-08-07T12:50:29.256070"
+    },
+    {
+      "test_name": "ST.1 - REQ field validation (missing required field)",
+      "expected": "False, Business Unit error",
+      "actual": "False, BU error: True",
+      "passed": true,
+      "details": "Should fail with Business Unit required error",
+      "timestamp": "2025-08-07T12:50:29.257066"
+    },
+    {
+      "test_name": "ST.2 - SUP field validation (provided suppressed field)",
+      "expected": "False, Suppression error",
+      "actual": "False, Suppression error: True",
+      "passed": true,
+      "details": "Should fail with suppression error",
+      "timestamp": "2025-08-07T12:50:29.258003"
+    },
+    {
+      "test_name": "ST.3 - OPT field validation (optional field not provided)",
+      "expected": "True",
+      "actual": "True",
+      "passed": true,
+      "details": "Optional fields should not cause validation errors",
+      "timestamp": "2025-08-07T12:50:29.258969"
+    },
+    {
+      "test_name": "RW.1 - Complete Sales Invoice Entry",
+      "expected": "Both lines valid",
+      "actual": "Debit: False, Credit: False, Total errors: 5",
+      "passed": false,
+      "details": "Sales invoice should pass all validations",
+      "timestamp": "2025-08-07T12:50:29.260603"
+    },
+    {
+      "test_name": "RW.2 - Cash Receipt Entry",
+      "expected": "Valid",
+      "actual": "True, errors: 0",
+      "passed": true,
+      "details": "Cash entries should have minimal field requirements",
+      "timestamp": "2025-08-07T12:50:29.261526"
+    },
+    {
+      "test_name": "RW.3 - Expense Entry Missing Required Fields",
+      "expected": "False, 2+ errors",
+      "actual": "False, 4 errors",
+      "passed": true,
+      "details": "Expense accounts should require business unit and area",
+      "timestamp": "2025-08-07T12:50:29.262921"
+    },
+    {
+      "test_name": "E.1 - Invalid GL Account handling",
+      "expected": "None (graceful failure)",
+      "actual": "None",
+      "passed": true,
+      "details": "Should gracefully handle non-existent accounts",
+      "timestamp": "2025-08-07T12:50:29.263871"
+    },
+    {
+      "test_name": "E.2 - Invalid Document Type handling",
+      "expected": "REV01 (fallback to account FSG)",
+      "actual": "REV01",
+      "passed": true,
+      "details": "Should fallback to account FSG when document type not found",
+      "timestamp": "2025-08-07T12:50:29.264839"
+    },
+    {
+      "test_name": "E.3 - Empty field value handling",
+      "expected": "False, validation errors",
+      "actual": "False, 3 errors",
+      "passed": true,
+      "details": "Empty strings and whitespace should be treated as missing",
+      "timestamp": "2025-08-07T12:50:29.265675"
+    },
+    {
+      "test_name": "P.1 - FSG Cache Performance (100 lookups)",
+      "expected": "< 0.1 seconds",
+      "actual": "0.050 seconds",
+      "passed": true,
+      "details": "Cached lookups should be very fast",
+      "timestamp": "2025-08-07T12:50:29.315752"
+    },
+    {
+      "test_name": "P.2 - Validation Performance (100 validations)",
+      "expected": "< 1.0 seconds",
+      "actual": "0.058 seconds",
+      "passed": true,
+      "details": "Validation should be fast enough for real-time use",
+      "timestamp": "2025-08-07T12:50:29.373721"
+    }
+  ]
+}

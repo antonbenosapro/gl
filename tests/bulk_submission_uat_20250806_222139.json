@@ -1,0 +1,15 @@
+{
+  "test_run_id": "UAT_BULK_SUBMISSION_20250806_222139",
+  "start_time": "2025-08-06 22:21:39.920945",
+  "test_cases": [],
+  "summary": {
+    "total_tests": 0,
+    "passed": 0,
+    "failed": 0,
+    "warnings": 0,
+    "skipped": 0,
+    "pass_rate": 0,
+    "end_time": "2025-08-06 22:21:39.931772",
+    "duration": "0:00:00.010830"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "uat_summary": {
+    "total_tests": 10,
+    "passed_tests": 3,
+    "failed_tests": 7,
+    "success_rate": 30.0,
+    "test_date": "2025-08-05T12:30:52.423327",
+    "status": "FAILED"
+  },
+  "test_results": [
+    {
+      "test_name": "Test Environment Setup",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:30:52.395616",
+      "details": {
+        "company_exists": true,
+        "period_open": true,
+        "accounts_available": true
+      }
+    },
+    {
+      "test_name": "Journal Entry Creation",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:30:52.405799",
+      "details": {
+        "entries_created": 3,
+        "document_numbers": [
+          "JE-UAT-20250805-001",
+          "JE-UAT-20250805-002",
+          "JE-UAT-20250805-003"
+        ]
+      }
+    },
+    {
+      "test_name": "Workflow Approval Process",
+      "status": "FAIL",
+      "timestamp": "2025-08-05 12:30:52.418579",
+      "details": "No documents were successfully approved"
+    },
+    {
+      "test_name": "GL Posting Individual Document",
+      "status": "FAIL",
+      "timestamp": "2025-08-05 12:30:52.418589",
+      "details": "No approved entries available for posting"
+    },
+    {
+      "test_name": "Batch Posting",
+      "status": "FAIL",
+      "timestamp": "2025-08-05 12:30:52.418595",
+      "details": "No entries available for batch posting"
+    },
+    {
+      "test_name": "Account Balance Verification",
+      "status": "FAIL",
+      "timestamp": "2025-08-05 12:30:52.420318",
+      "details": "Cash account balance incorrect: 0.0"
+    },
+    {
+      "test_name": "Preview Functionality",
+      "status": "FAIL",
+      "timestamp": "2025-08-05 12:30:52.420325",
+      "details": "No posted document available for preview testing"
+    },
+    {
+      "test_name": "Security & Segregation of Duties",
+      "status": "FAIL",
+      "timestamp": "2025-08-05 12:30:52.421074",
+      "details": "(psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)\n\n[SQL: \n                    INSERT INTO journalentryheader (\n                        documentnumber, companycodeid, postingdate, fiscalyear, period,\n                        reference, currencycode, createdby, workflow_status\n                    ) VALUES (\n                        %(doc)s, 'TEST', CURRENT_DATE, %(year)s, %(period)s,\n                        'SOD Test', 'USD', 'same_user', 'APPROVED'\n                    )\n                ]\n[parameters: {'doc': 'JE-SOD-20250805123052', 'year': 2025, 'period': 8}]\n(Background on this error at: https://sqlalche.me/e/20/9h9h)"
+    },
+    {
+      "test_name": "Error Handling",
+      "status": "PASS",
+      "timestamp": "2025-08-05 12:30:52.421949",
+      "details": {
+        "non_existent_doc": {
+          "passed": true,
+          "message": "Journal entry not found"
+        }
+      }
+    },
+    {
+      "test_name": "Audit Trail Verification",
+      "status": "FAIL",
+      "timestamp": "2025-08-05 12:30:52.423315",
+      "details": "No audit trail entries found"
+    }
+  ],
+  "test_data": {
+    "journal_entries": [
+      "JE-UAT-20250805-001",
+      "JE-UAT-20250805-002",
+      "JE-UAT-20250805-003"
+    ],
+    "approved_entries": []
+  },
+  "environment": {
+    "company_code": "TEST",
+    "fiscal_year": 2025,
+    "posting_period": 8,
+    "test_date": "2025-08-05"
+  }
+}

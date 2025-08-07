@@ -1,0 +1,450 @@
+{
+  "test_start_time": "2025-08-06 15:31:31.314102",
+  "company_code": "1000",
+  "test_scenarios": [],
+  "fx_transactions": [
+    {
+      "doc_number": "FX_TEST_EUR_001",
+      "description": "EUR Customer Invoice - Test Transaction",
+      "currency": "EUR",
+      "lines": [
+        {
+          "account": "115001",
+          "description": "A/R - EUR Customer",
+          "debit": 5000.0,
+          "credit": 0.0
+        },
+        {
+          "account": "410001",
+          "description": "Sales Revenue - EUR",
+          "debit": 0.0,
+          "credit": 5000.0
+        }
+      ]
+    },
+    {
+      "doc_number": "FX_TEST_GBP_001",
+      "description": "GBP Supplier Invoice - Test Transaction",
+      "currency": "GBP",
+      "lines": [
+        {
+          "account": "570001",
+          "description": "Office Expenses - GBP",
+          "debit": 2000.0,
+          "credit": 0.0
+        },
+        {
+          "account": "115002",
+          "description": "A/R - GBP Customer",
+          "debit": 1500.0,
+          "credit": 0.0
+        },
+        {
+          "account": "210002",
+          "description": "A/P - GBP Supplier",
+          "debit": 0.0,
+          "credit": 3500.0
+        }
+      ]
+    },
+    {
+      "doc_number": "FX_TEST_EUR_002",
+      "description": "EUR Cash Receipt - Test Transaction",
+      "currency": "EUR",
+      "lines": [
+        {
+          "account": "100002",
+          "description": "Cash - EUR Account",
+          "debit": 3000.0,
+          "credit": 0.0
+        },
+        {
+          "account": "115001",
+          "description": "A/R Collection - EUR",
+          "debit": 0.0,
+          "credit": 3000.0
+        }
+      ]
+    }
+  ],
+  "revaluation_results": {
+    "run_id": 1,
+    "company_code": "1000",
+    "revaluation_date": "2025-03-31",
+    "fiscal_year": 2025,
+    "fiscal_period": 3,
+    "run_type": "PERIOD_END",
+    "started_at": "2025-08-06 15:31:31.835819",
+    "status": "COMPLETED",
+    "accounts_processed": 7,
+    "revaluations_created": 0,
+    "total_unrealized_gain": "0.00",
+    "total_unrealized_loss": "0.00",
+    "journal_documents": [],
+    "errors": [],
+    "ledger_results": {
+      "2L": {
+        "ledger_id": "2L",
+        "accounts_processed": 2,
+        "revaluations_created": 0,
+        "total_unrealized_gain": "0.00",
+        "total_unrealized_loss": "0.00",
+        "journal_documents": [],
+        "account_details": [
+          {
+            "gl_account": "115001",
+            "account_currency": "EUR",
+            "functional_currency": "USD",
+            "opening_balance_fc": "0.00",
+            "current_balance_fc": "0.00",
+            "opening_balance_func": "0.00",
+            "historical_exchange_rate": "1.000000",
+            "current_exchange_rate": "1.000000",
+            "rate_difference": "0.000000",
+            "current_balance_func_at_current_rate": "0.00",
+            "unrealized_gain_loss": "0.00",
+            "revaluation_required": false,
+            "error_message": null
+          },
+          {
+            "gl_account": "210001",
+            "account_currency": "EUR",
+            "functional_currency": "USD",
+            "opening_balance_fc": "0.00",
+            "current_balance_fc": "0.00",
+            "opening_balance_func": "0.00",
+            "historical_exchange_rate": "1.000000",
+            "current_exchange_rate": "1.000000",
+            "rate_difference": "0.000000",
+            "current_balance_func_at_current_rate": "0.00",
+            "unrealized_gain_loss": "0.00",
+            "revaluation_required": false,
+            "error_message": null
+          }
+        ]
+      },
+      "L1": {
+        "ledger_id": "L1",
+        "accounts_processed": 5,
+        "revaluations_created": 0,
+        "total_unrealized_gain": "0.00",
+        "total_unrealized_loss": "0.00",
+        "journal_documents": [],
+        "account_details": [
+          {
+            "gl_account": "100002",
+            "account_currency": "EUR",
+            "functional_currency": "USD",
+            "opening_balance_fc": "0.00",
+            "current_balance_fc": "0.00",
+            "opening_balance_func": "0.00",
+            "historical_exchange_rate": "1.000000",
+            "current_exchange_rate": "1.000000",
+            "rate_difference": "0.000000",
+            "current_balance_func_at_current_rate": "0.00",
+            "unrealized_gain_loss": "0.00",
+            "revaluation_required": false,
+            "error_message": null
+          },
+          {
+            "gl_account": "115001",
+            "account_currency": "EUR",
+            "functional_currency": "USD",
+            "opening_balance_fc": "0.00",
+            "current_balance_fc": "0.00",
+            "opening_balance_func": "0.00",
+            "historical_exchange_rate": "1.000000",
+            "current_exchange_rate": "1.000000",
+            "rate_difference": "0.000000",
+            "current_balance_func_at_current_rate": "0.00",
+            "unrealized_gain_loss": "0.00",
+            "revaluation_required": false,
+            "error_message": null
+          },
+          {
+            "gl_account": "115002",
+            "account_currency": "GBP",
+            "functional_currency": "USD",
+            "opening_balance_fc": "0.00",
+            "current_balance_fc": "0.00",
+            "opening_balance_func": "0.00",
+            "historical_exchange_rate": "1.000000",
+            "current_exchange_rate": "1.000000",
+            "rate_difference": "0.000000",
+            "current_balance_func_at_current_rate": "0.00",
+            "unrealized_gain_loss": "0.00",
+            "revaluation_required": false,
+            "error_message": null
+          },
+          {
+            "gl_account": "210001",
+            "account_currency": "EUR",
+            "functional_currency": "USD",
+            "opening_balance_fc": "0.00",
+            "current_balance_fc": "0.00",
+            "opening_balance_func": "0.00",
+            "historical_exchange_rate": "1.000000",
+            "current_exchange_rate": "1.000000",
+            "rate_difference": "0.000000",
+            "current_balance_func_at_current_rate": "0.00",
+            "unrealized_gain_loss": "0.00",
+            "revaluation_required": false,
+            "error_message": null
+          },
+          {
+            "gl_account": "210002",
+            "account_currency": "GBP",
+            "functional_currency": "USD",
+            "opening_balance_fc": "0.00",
+            "current_balance_fc": "0.00",
+            "opening_balance_func": "0.00",
+            "historical_exchange_rate": "1.000000",
+            "current_exchange_rate": "1.000000",
+            "rate_difference": "0.000000",
+            "current_balance_func_at_current_rate": "0.00",
+            "unrealized_gain_loss": "0.00",
+            "revaluation_required": false,
+            "error_message": null
+          }
+        ]
+      }
+    },
+    "completed_at": "2025-08-06 15:31:31.849052"
+  },
+  "parallel_processing": {
+    "ledger_consistency": true,
+    "balance_verification": true,
+    "parallel_documents": 0,
+    "ledger_balances": {
+      "L1": {
+        "total_debits": 11500.0,
+        "total_credits": 11500.0,
+        "net_balance": 0.0,
+        "balanced": true
+      }
+    },
+    "errors": []
+  },
+  "validation_results": {},
+  "test_phases": {
+    "Phase 1": {
+      "status": "PASSED",
+      "message": "Test environment setup completed",
+      "details": {
+        "exchange_rates_setup": 3,
+        "fx_config_accounts": 7,
+        "fx_accounts_verified": 7
+      }
+    },
+    "Phase 2": {
+      "status": "PASSED",
+      "message": "Created 3 FX transactions",
+      "details": {
+        "transactions_created": 3,
+        "currencies": [
+          "EUR",
+          "GBP"
+        ]
+      }
+    },
+    "Phase 3": {
+      "status": "PASSED",
+      "message": "Updated 3 exchange rates for revaluation",
+      "details": {
+        "rates_updated": 3,
+        "rates_verified": 3,
+        "rate_changes": [
+          {
+            "from": "EUR",
+            "to": "USD",
+            "rate": "1.120000",
+            "change": "+3.7%"
+          },
+          {
+            "from": "GBP",
+            "to": "USD",
+            "rate": "1.200000",
+            "change": "-4.0%"
+          },
+          {
+            "from": "JPY",
+            "to": "USD",
+            "rate": "0.007200",
+            "change": "+5.9%"
+          }
+        ]
+      }
+    },
+    "Phase 4": {
+      "status": "PASSED",
+      "message": "FX revaluation completed successfully",
+      "details": {
+        "run_id": 1,
+        "company_code": "1000",
+        "revaluation_date": "2025-03-31",
+        "fiscal_year": 2025,
+        "fiscal_period": 3,
+        "run_type": "PERIOD_END",
+        "started_at": "2025-08-06 15:31:31.835819",
+        "status": "COMPLETED",
+        "accounts_processed": 7,
+        "revaluations_created": 0,
+        "total_unrealized_gain": "0.00",
+        "total_unrealized_loss": "0.00",
+        "journal_documents": [],
+        "errors": [],
+        "ledger_results": {
+          "2L": {
+            "ledger_id": "2L",
+            "accounts_processed": 2,
+            "revaluations_created": 0,
+            "total_unrealized_gain": "0.00",
+            "total_unrealized_loss": "0.00",
+            "journal_documents": [],
+            "account_details": [
+              {
+                "gl_account": "115001",
+                "account_currency": "EUR",
+                "functional_currency": "USD",
+                "opening_balance_fc": "0.00",
+                "current_balance_fc": "0.00",
+                "opening_balance_func": "0.00",
+                "historical_exchange_rate": "1.000000",
+                "current_exchange_rate": "1.000000",
+                "rate_difference": "0.000000",
+                "current_balance_func_at_current_rate": "0.00",
+                "unrealized_gain_loss": "0.00",
+                "revaluation_required": false,
+                "error_message": null
+              },
+              {
+                "gl_account": "210001",
+                "account_currency": "EUR",
+                "functional_currency": "USD",
+                "opening_balance_fc": "0.00",
+                "current_balance_fc": "0.00",
+                "opening_balance_func": "0.00",
+                "historical_exchange_rate": "1.000000",
+                "current_exchange_rate": "1.000000",
+                "rate_difference": "0.000000",
+                "current_balance_func_at_current_rate": "0.00",
+                "unrealized_gain_loss": "0.00",
+                "revaluation_required": false,
+                "error_message": null
+              }
+            ]
+          },
+          "L1": {
+            "ledger_id": "L1",
+            "accounts_processed": 5,
+            "revaluations_created": 0,
+            "total_unrealized_gain": "0.00",
+            "total_unrealized_loss": "0.00",
+            "journal_documents": [],
+            "account_details": [
+              {
+                "gl_account": "100002",
+                "account_currency": "EUR",
+                "functional_currency": "USD",
+                "opening_balance_fc": "0.00",
+                "current_balance_fc": "0.00",
+                "opening_balance_func": "0.00",
+                "historical_exchange_rate": "1.000000",
+                "current_exchange_rate": "1.000000",
+                "rate_difference": "0.000000",
+                "current_balance_func_at_current_rate": "0.00",
+                "unrealized_gain_loss": "0.00",
+                "revaluation_required": false,
+                "error_message": null
+              },
+              {
+                "gl_account": "115001",
+                "account_currency": "EUR",
+                "functional_currency": "USD",
+                "opening_balance_fc": "0.00",
+                "current_balance_fc": "0.00",
+                "opening_balance_func": "0.00",
+                "historical_exchange_rate": "1.000000",
+                "current_exchange_rate": "1.000000",
+                "rate_difference": "0.000000",
+                "current_balance_func_at_current_rate": "0.00",
+                "unrealized_gain_loss": "0.00",
+                "revaluation_required": false,
+                "error_message": null
+              },
+              {
+                "gl_account": "115002",
+                "account_currency": "GBP",
+                "functional_currency": "USD",
+                "opening_balance_fc": "0.00",
+                "current_balance_fc": "0.00",
+                "opening_balance_func": "0.00",
+                "historical_exchange_rate": "1.000000",
+                "current_exchange_rate": "1.000000",
+                "rate_difference": "0.000000",
+                "current_balance_func_at_current_rate": "0.00",
+                "unrealized_gain_loss": "0.00",
+                "revaluation_required": false,
+                "error_message": null
+              },
+              {
+                "gl_account": "210001",
+                "account_currency": "EUR",
+                "functional_currency": "USD",
+                "opening_balance_fc": "0.00",
+                "current_balance_fc": "0.00",
+                "opening_balance_func": "0.00",
+                "historical_exchange_rate": "1.000000",
+                "current_exchange_rate": "1.000000",
+                "rate_difference": "0.000000",
+                "current_balance_func_at_current_rate": "0.00",
+                "unrealized_gain_loss": "0.00",
+                "revaluation_required": false,
+                "error_message": null
+              },
+              {
+                "gl_account": "210002",
+                "account_currency": "GBP",
+                "functional_currency": "USD",
+                "opening_balance_fc": "0.00",
+                "current_balance_fc": "0.00",
+                "opening_balance_func": "0.00",
+                "historical_exchange_rate": "1.000000",
+                "current_exchange_rate": "1.000000",
+                "rate_difference": "0.000000",
+                "current_balance_func_at_current_rate": "0.00",
+                "unrealized_gain_loss": "0.00",
+                "revaluation_required": false,
+                "error_message": null
+              }
+            ]
+          }
+        },
+        "completed_at": "2025-08-06 15:31:31.849052"
+      }
+    },
+    "Phase 5": {
+      "status": "PASSED",
+      "message": "Parallel integration validated successfully",
+      "details": {
+        "ledger_consistency": true,
+        "balance_verification": true,
+        "parallel_documents": 0,
+        "ledger_balances": {
+          "L1": {
+            "total_debits": 11500.0,
+            "total_credits": 11500.0,
+            "net_balance": 0.0,
+            "balanced": true
+          }
+        },
+        "errors": []
+      }
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "test_end_time": "2025-08-06 15:31:31.850388",
+  "overall_assessment": "PRODUCTION_READY",
+  "success_rate": 100.0
+}

@@ -3,7 +3,10 @@ SAP-Style Navigation Component for GL ERP System
 Provides consistent sidebar navigation across all pages
 """
 import streamlit as st
-from auth.middleware import authenticator
+try:
+    from auth.optimized_middleware import optimized_authenticator as authenticator
+except ImportError:
+    from auth.middleware import authenticator
 
 def show_sap_sidebar():
     """Display the SAP-style sidebar navigation"""
@@ -33,6 +36,14 @@ def show_sap_sidebar():
                 st.switch_page("pages/GL_Account_Entry.py")
         else:
             st.button("➕ Create GL Account", disabled=True, help="Permission required: glaccount.create", key="nav_gl_create_disabled")
+        
+        st.markdown("**Business Units & Dimensions**")
+        if st.button("🏢 Business Unit Management", key="nav_business_units"):
+            st.switch_page("pages/Business_Unit_Management.py")
+        if st.button("📦 Product Line Management", key="nav_product_lines"):
+            st.switch_page("pages/Product_Line_Management.py")
+        if st.button("📍 Location Management", key="nav_locations"):
+            st.switch_page("pages/Location_Management.py")
 
     # Transaction Processing
     with st.sidebar.expander("📝 Transactions", expanded=False):
@@ -47,8 +58,11 @@ def show_sap_sidebar():
         if authenticator.has_permission("glaccount.create"):
             if st.button("📥 Manual Journal Entry", key="nav_manual_je"):
                 st.switch_page("pages/GL_Account_Entry.py")
+            if st.button("📤 Journal Entry Upload", key="nav_je_upload"):
+                st.switch_page("pages/Journal_Entry_Upload.py")
         else:
             st.button("📥 Manual Journal Entry", disabled=True, help="Permission required: glaccount.create", key="nav_manual_je_disabled")
+            st.button("📤 Journal Entry Upload", disabled=True, help="Permission required: glaccount.create", key="nav_je_upload_disabled")
 
     # Financial Reporting
     with st.sidebar.expander("📊 Financial Reports", expanded=False):
@@ -117,14 +131,27 @@ def show_sap_sidebar():
         st.rerun()
 
 def show_breadcrumb(page_title, *path):
-    """Display breadcrumb navigation"""
+    """Display breadcrumb navigation with active user info"""
     breadcrumb_path = "Home"
     for item in path:
         breadcrumb_path += f" > {item}"
     
+    # Get current user info
+    current_user = authenticator.get_current_user()
+    user_permissions = authenticator.get_user_permissions()
+    is_admin = any(perm.startswith('users.') or perm.startswith('system.') for perm in user_permissions)
+    user_role = "Admin" if is_admin else "User"
+    
     st.markdown(f"""
-    <div style="background-color: #f8f9fa; padding: 0.5rem 1rem; border-radius: 4px; margin-bottom: 1rem; border-left: 4px solid #0070f3;">
-        <span style="color: #586069; font-size: 0.875rem;">📍 Navigation: </span>
-        <span style="color: #24292e; font-weight: 500;">{breadcrumb_path}</span>
+    <div style="background-color: #f8f9fa; padding: 0.5rem 1rem; border-radius: 4px; margin-bottom: 1rem; border-left: 4px solid #0070f3; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <span style="color: #586069; font-size: 0.875rem;">📍 Navigation: </span>
+            <span style="color: #24292e; font-weight: 500;">{breadcrumb_path}</span>
+        </div>
+        <div style="text-align: right;">
+            <span style="color: #586069; font-size: 0.875rem;">👤 Active User: </span>
+            <span style="color: #24292e; font-weight: 500;">{current_user.full_name}</span>
+            <span style="color: #586069; font-size: 0.75rem; margin-left: 0.5rem;">({user_role})</span>
+        </div>
     </div>
     """, unsafe_allow_html=True)

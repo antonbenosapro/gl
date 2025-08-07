@@ -1,0 +1,104 @@
+{
+  "test_name": "IAS 21 Full Compliance End-to-End Test",
+  "test_date": "2025-08-06T18:41:57.572510",
+  "test_scenarios": [
+    {
+      "test_name": "Exchange Difference Classification",
+      "passed": 3,
+      "total": 4,
+      "failed": 1,
+      "warnings": 0,
+      "success_rate": 75.0,
+      "timestamp": "2025-08-06T18:41:57.572546"
+    },
+    {
+      "test_name": "Net Investment Hedges",
+      "passed": 3,
+      "total": 3,
+      "failed": 0,
+      "warnings": 0,
+      "success_rate": 100.0,
+      "timestamp": "2025-08-06T18:41:57.592227"
+    },
+    {
+      "test_name": "Translation Methods",
+      "passed": 0,
+      "total": 4,
+      "failed": 4,
+      "warnings": 0,
+      "success_rate": 0.0,
+      "timestamp": "2025-08-06T18:41:57.607237"
+    },
+    {
+      "test_name": "Functional Currency Change",
+      "passed": 0,
+      "total": 4,
+      "failed": 4,
+      "warnings": 0,
+      "success_rate": 0.0,
+      "timestamp": "2025-08-06T18:41:57.615239"
+    },
+    {
+      "test_name": "Foreign Operation Disposal",
+      "passed": 0,
+      "total": 3,
+      "failed": 3,
+      "warnings": 0,
+      "success_rate": 0.0,
+      "timestamp": "2025-08-06T18:41:57.617280"
+    },
+    {
+      "test_name": "OCI Classification and Recycling",
+      "passed": 3,
+      "total": 3,
+      "failed": 0,
+      "warnings": 0,
+      "success_rate": 100.0,
+      "timestamp": "2025-08-06T18:41:57.617293"
+    },
+    {
+      "test_name": "IAS 21 Disclosures",
+      "passed": 0,
+      "total": 4,
+      "failed": 4,
+      "warnings": 0,
+      "success_rate": 0.0,
+      "timestamp": "2025-08-06T18:41:57.618292"
+    },
+    {
+      "test_name": "FX Revaluation Integration",
+      "passed": 0,
+      "total": 3,
+      "failed": 3,
+      "warnings": 0,
+      "success_rate": 0.0,
+      "timestamp": "2025-08-06T18:41:57.618308"
+    },
+    {
+      "test_name": "Hyperinflationary Economy Support",
+      "passed": 4,
+      "total": 4,
+      "failed": 0,
+      "warnings": 0,
+      "success_rate": 100.0,
+      "timestamp": "2025-08-06T18:41:57.621404"
+    },
+    {
+      "test_name": "Multi-Currency Entity Comprehensive Test",
+      "passed": 5,
+      "total": 5,
+      "failed": 0,
+      "warnings": 0,
+      "success_rate": 100.0,
+      "timestamp": "2025-08-06T18:41:57.622382"
+    }
+  ],
+  "summary": {
+    "total_tests": 37,
+    "passed_tests": 18,
+    "failed_tests": 19,
+    "warnings": 0
+  },
+  "overall_success_rate": 48.64864864864865,
+  "test_conclusion": "CRITICAL"
+}

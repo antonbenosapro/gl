@@ -168,7 +168,7 @@ if st.button("📘 Generate General Ledger Report", type="primary"):
         jel.debitamount,
         jel.creditamount,
         jel.description AS memo,
-        jel.costcenterid
+        jel.business_unit_id
     FROM 
         journalentryline jel
     JOIN 

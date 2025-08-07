@@ -1,0 +1,112 @@
+{
+  "uat_start_time": "2025-08-06 14:50:26.309968",
+  "test_fiscal_year": 2025,
+  "test_fiscal_period": 1,
+  "test_posting_date": "2025-01-15",
+  "test_document_date": "2025-01-15",
+  "draft_documents": [],
+  "approved_documents": [],
+  "posted_documents": [],
+  "parallel_documents": [],
+  "test_phases": {
+    "Draft Creation - JAN2025UAT001": {
+      "success": false,
+      "message": "Failed to create draft: Failed to save document JAN2025UAT001",
+      "timestamp": "2025-08-06 14:50:26.657851",
+      "details": {}
+    },
+    "Draft Creation - JAN2025UAT002": {
+      "success": false,
+      "message": "Failed to create draft: Failed to save document JAN2025UAT002",
+      "timestamp": "2025-08-06 14:50:26.660831",
+      "details": {}
+    },
+    "Draft Creation - JAN2025UAT003": {
+      "success": false,
+      "message": "Failed to create draft: Failed to save document JAN2025UAT003",
+      "timestamp": "2025-08-06 14:50:26.663213",
+      "details": {}
+    },
+    "Draft Creation - JAN2025UAT004": {
+      "success": false,
+      "message": "Failed to create draft: Failed to save document JAN2025UAT004",
+      "timestamp": "2025-08-06 14:50:26.665491",
+      "details": {}
+    },
+    "Draft Creation - JAN2025UAT005": {
+      "success": false,
+      "message": "Failed to create draft: Failed to save document JAN2025UAT005",
+      "timestamp": "2025-08-06 14:50:26.667859",
+      "details": {}
+    },
+    "Draft Journal Creation": {
+      "success": false,
+      "message": "Created 0 draft documents with 0 lines",
+      "timestamp": "2025-08-06 14:50:26.667871",
+      "details": {
+        "documents_created": 0,
+        "total_lines": 0,
+        "total_debits": "$0.00",
+        "total_credits": "$0.00",
+        "balance_check": "\u2705 Balanced"
+      }
+    },
+    "Workflow Approval": {
+      "success": false,
+      "message": "No draft documents available for approval",
+      "timestamp": "2025-08-06 14:50:26.667879",
+      "details": {}
+    },
+    "Bulk Posting": {
+      "success": false,
+      "message": "No approved documents available for posting",
+      "timestamp": "2025-08-06 14:50:26.667883",
+      "details": {}
+    },
+    "Parallel Ledger Processing": {
+      "success": false,
+      "message": "No posted documents available for parallel processing",
+      "timestamp": "2025-08-06 14:50:26.667886",
+      "details": {}
+    },
+    "Balance Verification": {
+      "success": true,
+      "message": "Verified balances across 1 ledgers - All Balanced",
+      "timestamp": "2025-08-06 14:50:26.669413",
+      "details": {
+        "ledgers_verified": 1,
+        "total_documents": 2,
+        "total_lines": 5,
+        "balance_status": "\u2705 All Balanced",
+        "ledger_breakdown": "1 ledgers active"
+      }
+    }
+  },
+  "final_balances": {
+    "L1": {
+      "ledger_name": "Leading Ledger",
+      "accounting_principle": "US_GAAP",
+      "documents": 2,
+      "lines": 5,
+      "debits": 30000.0,
+      "credits": 30000.0,
+      "net_balance": 0.0,
+      "is_balanced": true
+    }
+  },
+  "errors": [
+    "Draft Creation - JAN2025UAT001: Failed to create draft: Failed to save document JAN2025UAT001",
+    "Draft Creation - JAN2025UAT002: Failed to create draft: Failed to save document JAN2025UAT002",
+    "Draft Creation - JAN2025UAT003: Failed to create draft: Failed to save document JAN2025UAT003",
+    "Draft Creation - JAN2025UAT004: Failed to create draft: Failed to save document JAN2025UAT004",
+    "Draft Creation - JAN2025UAT005: Failed to create draft: Failed to save document JAN2025UAT005",
+    "Draft Journal Creation: Created 0 draft documents with 0 lines",
+    "Workflow Approval: No draft documents available for approval",
+    "Bulk Posting: No approved documents available for posting",
+    "Parallel Ledger Processing: No posted documents available for parallel processing"
+  ],
+  "warnings": [],
+  "uat_end_time": "2025-08-06 14:50:26.669600",
+  "uat_status": "NEEDS_WORK",
+  "success_rate": 10.0
+}

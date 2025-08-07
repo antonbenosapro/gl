@@ -1,0 +1,39 @@
+IMPLEMENTATION PLAN — “BlackLine Features, Your Stack”
+Feature	Custom GL Implementation Plan
+🧾 Account Reconciliation	Build a module to track reconciliations per account per period. Use AG Grid for:
+• Reconciliation status	
+• Assigned user	
+• Explanation notes + upload attachments	
+• Auto-flag accounts with mismatches	
+📤 Journal Entry Management	Extend your JE Manager:
+• Auto-post from reconciliation module	
+• Validations, multi-level approvals	
+• Auto-numbering + audit trail	
+📌 Task & Period Close Checklist	New dashboard:
+• Period-based task tracker	
+• Checkbox + deadline + assignee	
+• Email reminders (optional later)	
+🔍 Transaction Matching	Implement rule-based matching:
+• Bank vs GL	
+• AR/AP vs payments	
+• Exception reporting using fuzzy match logic	
+📈 KPI & Dashboards	Use your Streamlit dashboard:
+• Close % by day	
+• # of open tasks	
+• Unreconciled accounts chart	
+• Aging reports	
+📊 Real-time Trial Balance + Variance Analysis	Add TB reports:
+• Filter by ledger/period	
+• Show budget/actual/prior	
+• Highlight variance + % change	
+📡 Audit Trail	All changes (JE edits, reconciliation notes)
+• Tracked by user/timestamp	
+• Store in change logs table	
+👥 User Roles & Controls	Add role-based access for:
+• JE entry vs approval	
+• View-only roles for auditors	
+• Restrict by company code	
+🧠 AI Suggestions (Optional)	Add lightweight rule engine later:
+• Suggest accruals from past trends	
+• Flag inconsistent journal entries	
+• Use OpenAI locally or LLM fallback logic	
